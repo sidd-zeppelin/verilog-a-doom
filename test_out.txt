@@ -1,0 +1,280 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom
+configfile: pyproject.toml
+plugins: cocotb-test-0.2.6
+collected 1 item
+
+tests/test_isa_exhaustive.py F
+
+=================================== FAILURES ===================================
+_____________________________ test_isa_exhaustive ______________________________
+
+    def test_isa_exhaustive():
+        src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+>       run(
+            verilog_sources=[
+                os.path.join(src_dir, "timescale.v"),
+                os.path.join(src_dir, "soc_top.v"),
+                os.path.join(src_dir, "top_pipeline.v"),
+                os.path.join(src_dir, "memory_bus.v")
+            ],
+            toplevel="soc_top",
+            module="test_isa_exhaustive",
+            includes=[os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))]
+        )
+E       SystemExit: FAILED 1 tests.
+
+tests/test_isa_exhaustive.py:139: SystemExit
+------------------------------ Captured log call -------------------------------
+WARNING  cocotb:simulator.py:485 Skipping compilation:/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/sim_build/soc_top.vvp
+INFO     cocotb:simulator.py:295 Running command: vvp -M /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb/libs -m libcocotbvpi_icarus /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/sim_build/soc_top.vvp
+INFO     cocotb:simulator.py:266      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.13.0rc1 interpreter at /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/bin/python3
+INFO     cocotb:simulator.py:266      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb                             Seeding Python random module with 1782853185
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb                             Running tests
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb.regression                  running test_isa_exhaustive.test_r_type_instructions (1/5)
+INFO     cocotb:simulator.py:266                                                             Test all R-type instructions.
+INFO     cocotb:simulator.py:266 Cycle  0: PC=   4 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  1: PC=   8 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  2: PC=  12 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  3: PC=  16 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  4: PC=  20 | x1=  15 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  5: PC=  24 | x1=  15 | x2=   3 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  6: PC=  28 | x1=  15 | x2=   3 | x3=  18 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  7: PC=  32 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle  8: PC=  36 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle  9: PC=  40 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 10: PC=  44 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 11: PC=  48 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 12: PC=  52 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 13: PC=  56 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 14: PC=  60 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 15: PC=  64 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 16: PC=  68 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 17: PC=  72 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 18: PC=  76 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 19: PC=  80 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 20: PC=  84 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 21: PC=  88 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 22: PC=  92 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 23: PC=  96 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 24: PC= 100 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 25: PC= 104 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 26: PC= 108 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 27: PC= 112 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 28: PC= 116 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 29: PC= 120 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 30: PC= 124 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 31: PC= 128 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 32: PC= 132 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 33: PC= 136 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 34: PC= 140 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 35: PC= 144 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 36: PC= 148 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 37: PC= 152 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 38: PC= 156 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266 Cycle 39: PC= 160 | x1=  15 | x2=   3 | x3=  18 | x4=  12
+INFO     cocotb:simulator.py:266    410.00ns INFO     cocotb.regression                  test_isa_exhaustive.test_r_type_instructions passed
+INFO     cocotb:simulator.py:266    410.00ns INFO     cocotb.regression                  running test_isa_exhaustive.test_i_type_instructions (2/5)
+INFO     cocotb:simulator.py:266                                                             Test I-type logic instructions.
+INFO     cocotb:simulator.py:266 Cycle  0: PC=   4 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  1: PC=   8 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  2: PC=  12 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  3: PC=  16 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  4: PC=  20 | x1=  15 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  5: PC=  24 | x1=  15 | x2=  12 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  6: PC=  28 | x1=  15 | x2=  12 | x3=  31 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  7: PC=  32 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle  8: PC=  36 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle  9: PC=  40 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 10: PC=  44 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 11: PC=  48 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 12: PC=  52 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 13: PC=  56 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 14: PC=  60 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 15: PC=  64 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 16: PC=  68 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 17: PC=  72 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 18: PC=  76 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 19: PC=  80 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 20: PC=  84 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 21: PC=  88 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 22: PC=  92 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 23: PC=  96 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 24: PC= 100 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 25: PC= 104 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 26: PC= 108 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 27: PC= 112 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 28: PC= 116 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266 Cycle 29: PC= 120 | x1=  15 | x2=  12 | x3=  31 | x4=   7
+INFO     cocotb:simulator.py:266    730.00ns INFO     cocotb.regression                  test_isa_exhaustive.test_i_type_instructions passed
+INFO     cocotb:simulator.py:266    730.00ns INFO     cocotb.regression                  running test_isa_exhaustive.test_memory_instructions (3/5)
+INFO     cocotb:simulator.py:266                                                             Test memory access instructions (load/store).
+INFO     cocotb:simulator.py:266 Cycle  0: PC=   4 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  1: PC=   8 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  2: PC=  12 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  3: PC=  16 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  4: PC=  20 | x1=4096 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  5: PC=  24 | x1=4096 | x2=  42 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  6: PC=  28 | x1=4096 | x2=  42 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  7: PC=  32 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  8: PC=  36 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  9: PC=  40 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 10: PC=  44 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 11: PC=  48 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 12: PC=  52 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 13: PC=  56 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 14: PC=  60 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 15: PC=  64 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 16: PC=  68 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 17: PC=  72 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 18: PC=  76 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 19: PC=  80 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 20: PC=  84 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 21: PC=  88 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 22: PC=  92 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 23: PC=  96 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 24: PC= 100 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 25: PC= 104 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 26: PC= 108 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 27: PC= 112 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 28: PC= 116 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 29: PC= 120 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 30: PC= 124 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 31: PC= 128 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 32: PC= 132 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 33: PC= 136 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 34: PC= 140 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 35: PC= 144 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 36: PC= 148 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 37: PC= 152 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 38: PC= 156 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 39: PC= 160 | x1=4096 | x2=  42 | x3=  42 | x4=   0
+INFO     cocotb:simulator.py:266   1150.00ns INFO     cocotb.regression                  test_isa_exhaustive.test_memory_instructions passed
+INFO     cocotb:simulator.py:266   1150.00ns INFO     cocotb.regression                  running test_isa_exhaustive.test_u_type_instructions (4/5)
+INFO     cocotb:simulator.py:266                                                             Test U-type instructions.
+INFO     cocotb:simulator.py:266 Cycle  0: PC=   4 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  1: PC=   8 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  2: PC=  12 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  3: PC=  16 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  4: PC=  20 | x1=305418240 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  5: PC=  24 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  6: PC=  28 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  7: PC=  32 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  8: PC=  36 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  9: PC=  40 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 10: PC=  44 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 11: PC=  48 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 12: PC=  52 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 13: PC=  56 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 14: PC=  60 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 15: PC=  64 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 16: PC=  68 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 17: PC=  72 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 18: PC=  76 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 19: PC=  80 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 20: PC=  84 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 21: PC=  88 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 22: PC=  92 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 23: PC=  96 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 24: PC= 100 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 25: PC= 104 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 26: PC= 108 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 27: PC= 112 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 28: PC= 116 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 29: PC= 120 | x1=305418240 | x2=16777220 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266   1470.00ns INFO     cocotb.regression                  test_isa_exhaustive.test_u_type_instructions passed
+INFO     cocotb:simulator.py:266   1470.00ns INFO     cocotb.regression                  running test_isa_exhaustive.test_m_type_instructions (5/5)
+INFO     cocotb:simulator.py:266                                                             Test M-type hardware math instructions.
+INFO     cocotb:simulator.py:266 Cycle  0: PC=   4 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  1: PC=   8 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  2: PC=  12 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  3: PC=  16 | x1=   0 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  4: PC=  20 | x1=  10 | x2=   0 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  5: PC=  20 | x1=  10 | x2=   5 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  6: PC=  20 | x1=  10 | x2=   5 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  7: PC=  20 | x1=  10 | x2=   5 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  8: PC=  24 | x1=  10 | x2=   5 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle  9: PC=  28 | x1=  10 | x2=   5 | x3=   0 | x4=   0
+INFO     cocotb:simulator.py:266 Cycle 10: PC=  28 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 11: PC=  28 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 12: PC=  28 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 13: PC=  32 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 14: PC=  36 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 15: PC=  36 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 16: PC=  36 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 17: PC=  36 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 18: PC=  40 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 19: PC=  44 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 20: PC=  48 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 21: PC=  52 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 22: PC=  56 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 23: PC=  60 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 24: PC=  64 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 25: PC=  68 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 26: PC=  72 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 27: PC=  76 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 28: PC=  80 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 29: PC=  84 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 30: PC=  88 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 31: PC=  92 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 32: PC=  96 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 33: PC= 100 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 34: PC= 104 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 35: PC= 108 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 36: PC= 112 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 37: PC= 116 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 38: PC= 120 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 39: PC= 124 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 40: PC= 128 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 41: PC= 132 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 42: PC= 136 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 43: PC= 140 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 44: PC= 144 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 45: PC= 148 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 46: PC= 152 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 47: PC= 156 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 48: PC= 160 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 49: PC= 164 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 50: PC= 168 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 51: PC= 172 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 52: PC= 176 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 53: PC= 180 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 54: PC= 184 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 55: PC= 188 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 56: PC= 192 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 57: PC= 196 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 58: PC= 200 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266 Cycle 59: PC= 204 | x1=  10 | x2=   5 | x3=   0 | x4=  50
+INFO     cocotb:simulator.py:266   2090.00ns WARNING  ..uctions.test_m_type_instructions MUL failed
+INFO     cocotb:simulator.py:266                                                         assert 0 == 50
+INFO     cocotb:simulator.py:266                                                          +  where 0 = int(LogicArray('0000000000000000000000000000000000000000000000000000000000000000', Range(63, 'downto', 0)))
+INFO     cocotb:simulator.py:266                                                          +    where LogicArray('0000000000000000000000000000000000000000000000000000000000000000', Range(63, 'downto', 0)) = LogicArrayObject(soc_top.u_core.u_id.u_regfile.registers[3]).value
+INFO     cocotb:simulator.py:266                                                         Traceback (most recent call last):
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 131, in test_m_type_instructions
+INFO     cocotb:simulator.py:266                                                             assert int(reg[3].value) == 50, "MUL failed"
+INFO     cocotb:simulator.py:266                                                         AssertionError: MUL failed
+INFO     cocotb:simulator.py:266                                                         assert 0 == 50
+INFO     cocotb:simulator.py:266                                                          +  where 0 = int(LogicArray('0000000000000000000000000000000000000000000000000000000000000000', Range(63, 'downto', 0)))
+INFO     cocotb:simulator.py:266                                                          +    where LogicArray('0000000000000000000000000000000000000000000000000000000000000000', Range(63, 'downto', 0)) = LogicArrayObject(soc_top.u_core.u_id.u_regfile.registers[3]).value
+INFO     cocotb:simulator.py:266   2090.00ns WARNING  cocotb.regression                  test_isa_exhaustive.test_m_type_instructions failed
+INFO     cocotb:simulator.py:266   2090.00ns INFO     cocotb.regression                  ******************************************************************************************************
+INFO     cocotb:simulator.py:266                                                         ** TEST                                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+INFO     cocotb:simulator.py:266                                                         ******************************************************************************************************
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_r_type_instructions   PASS         410.00           0.06       7377.97  **
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_i_type_instructions   PASS         320.00           0.02      15090.48  **
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_memory_instructions   PASS         420.00           0.01      36645.19  **
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_u_type_instructions   PASS         320.00           0.01      39357.73  **
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_m_type_instructions   FAIL         620.00           0.03      22962.80  **
+INFO     cocotb:simulator.py:266                                                         ******************************************************************************************************
+INFO     cocotb:simulator.py:266                                                         ** TESTS=5 PASS=4 FAIL=1 SKIP=0                               2090.00           0.13      16027.73  **
+INFO     cocotb:simulator.py:266                                                         ******************************************************************************************************
+INFO     cocotb:simulator.py:266 WARNING: /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/instruction_mem.v:35: $readmemh(instructions.txt): Not enough words in the file for the requested range [0:4095].
+INFO     cocotb:simulator.py:266 WARNING: /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/instruction_mem.v:35: $readmemh(instructions.txt): Not enough words in the file for the requested range [0:4095].
+ERROR    cocotb:simulator.py:217 Failed: test_isa_exhaustive::test_m_type_instructions
+=========================== short test summary info ============================
+FAILED tests/test_isa_exhaustive.py::test_isa_exhaustive - SystemExit: FAILED...
+============================== 1 failed in 0.64s ===============================

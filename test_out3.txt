@@ -1,0 +1,38 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom
+configfile: pyproject.toml
+plugins: cocotb-test-0.2.6
+collected 1 item
+
+tests/test_isa_exhaustive.py F
+
+=================================== FAILURES ===================================
+_____________________________ test_isa_exhaustive ______________________________
+
+    def test_isa_exhaustive():
+        src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+>       run(
+            verilog_sources=[
+                os.path.join(src_dir, "timescale.v"),
+                os.path.join(src_dir, "soc_top.v"),
+                os.path.join(src_dir, "top_pipeline.v"),
+                os.path.join(src_dir, "memory_bus.v")
+            ],
+            toplevel="soc_top",
+            module="test_isa_exhaustive",
+            includes=[os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))]
+        )
+E       SystemExit: Process iverilog terminated with error 4
+
+tests/test_isa_exhaustive.py:139: SystemExit
+------------------------------ Captured log call -------------------------------
+INFO     cocotb:simulator.py:295 Running command: iverilog -o /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/sim_build/soc_top.vvp -D COCOTB_SIM=1 -g2012 -s soc_top -I/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/timescale.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/soc_top.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/top_pipeline.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/memory_bus.v
+ERROR    cocotb:simulator.py:266 /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/instruction_mem.v:33: error: Unable to bind wire/reg/memory `rst' in `soc_top.u_core.u_if.u_imem'
+ERROR    cocotb:simulator.py:266 /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/instruction_mem.v:33: error: Failed to evaluate event expression 'posedge rst'.
+ERROR    cocotb:simulator.py:266 /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/instruction_mem.v:33: error: Unable to bind wire/reg/memory `rst' in `soc_top.u_rom'
+ERROR    cocotb:simulator.py:266 /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/instruction_mem.v:33: error: Failed to evaluate event expression 'posedge rst'.
+ERROR    cocotb:simulator.py:266 4 error(s) during elaboration.
+=========================== short test summary info ============================
+FAILED tests/test_isa_exhaustive.py::test_isa_exhaustive - SystemExit: Proces...
+============================== 1 failed in 0.17s ===============================
