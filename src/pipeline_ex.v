@@ -9,6 +9,11 @@ module pipeline_ex (
     input         ex_ALUSrc,
     input  [1:0]  ex_ALUOp, ex_ALUSrcA,
     input         ex_Branch, ex_Jump,
+    input         ex_is_csr, ex_is_mret, ex_is_32bit,
+    input  [11:0] ex_funct12,
+    input         timer_interrupt,
+    input         take_trap,
+    input  [63:0] trap_pc,
     // forwarding inputs 
     input  [1:0]  ForwardA, ForwardB,
     input  [63:0] forward_mem_data, forward_wb_data,
@@ -18,7 +23,10 @@ module pipeline_ex (
     output [63:0] ex_forwarded_rs2,
     output [63:0] ex_branch_target,
     output        ex_branch_taken,
-    output        multdiv_busy
+    output        multdiv_busy,
+    output [63:0] trap_target_pc,
+    output        mstatus_mie,
+    output        mie_mtie
 );
     // forwarding mux — operand a
     reg [63:0] fwd_rs1;
@@ -85,7 +93,58 @@ module pipeline_ex (
         .busy     (multdiv_busy)
     );
 
-    assign ex_alu_result = is_m_ext ? multdiv_result : alu_res;
+    wire [63:0] alu_result_raw;
+    assign alu_result_raw = is_m_ext ? multdiv_result : alu_res;
+
+    wire [63:0] alu_result_32;
+    assign alu_result_32 = {{32{alu_result_raw[31]}}, alu_result_raw[31:0]};
+
+    wire [63:0] alu_result_mux;
+    assign alu_result_mux = ex_is_32bit ? alu_result_32 : alu_result_raw;
+
+    // CSR Logic
+    wire is_csr_rs_rc = (ex_funct3 == 3'b010) | (ex_funct3 == 3'b011) | (ex_funct3 == 3'b110) | (ex_funct3 == 3'b111);
+    wire csr_write_en = ex_is_csr & ~(is_csr_rs_rc & (ex_rs1 == 5'b0));
+    wire csr_read_en = ex_is_csr;
+    
+    wire [63:0] csr_rdata;
+    reg  [63:0] csr_write_data;
+    
+    always @(*) begin
+        case (ex_funct3)
+            3'b001: csr_write_data = fwd_rs1;
+            3'b010: csr_write_data = csr_rdata | fwd_rs1;
+            3'b011: csr_write_data = csr_rdata & ~fwd_rs1;
+            3'b101: csr_write_data = {59'b0, ex_rs1};
+            3'b110: csr_write_data = csr_rdata | {59'b0, ex_rs1};
+            3'b111: csr_write_data = csr_rdata & ~{59'b0, ex_rs1};
+            default: csr_write_data = fwd_rs1;
+        endcase
+    end
+
+    wire [63:0] mepc_out;
+    wire [63:0] mtvec_out;
+
+    csr_regfile u_csr (
+        .clk(clk),
+        .rst(rst),
+        .csr_addr(ex_funct12),
+        .csr_wdata(csr_write_data),
+        .csr_write(csr_write_en),
+        .csr_read(csr_read_en),
+        .csr_rdata(csr_rdata),
+        .timer_interrupt(timer_interrupt),
+        .take_trap(take_trap),
+        .trap_pc(trap_pc),
+        .is_mret(ex_is_mret),
+        .mepc(mepc_out),
+        .mtvec(mtvec_out),
+        .mstatus_mie(mstatus_mie),
+        .mie_mtie(mie_mtie)
+    );
+
+    assign ex_alu_result = ex_is_csr ? csr_rdata : alu_result_mux;
+    assign trap_target_pc = ex_is_mret ? mepc_out : mtvec_out;
 
     wire [63:0] bta_result;
     branch_target_adder u_bta (

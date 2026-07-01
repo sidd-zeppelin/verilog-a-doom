@@ -3,6 +3,7 @@ import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge
 from cocotb_test.simulator import run
+# pyrefly: ignore [missing-import]
 from riscv_assembler import RISCVAssembler
 
 async def run_program(dut, prog, cycles=30):
@@ -10,13 +11,13 @@ async def run_program(dut, prog, cycles=30):
     
     # Inject directly into memory instead of relying on readmemh which only runs once
     for i, w in enumerate(hex_prog):
-        dut.u_core.u_if.u_imem.mem[i*4].value = int(w[6:8], 16)
-        dut.u_core.u_if.u_imem.mem[i*4+1].value = int(w[4:6], 16)
-        dut.u_core.u_if.u_imem.mem[i*4+2].value = int(w[2:4], 16)
-        dut.u_core.u_if.u_imem.mem[i*4+3].value = int(w[0:2], 16)
+        dut.u_ram.memory[i*4].value = int(w[6:8], 16)
+        dut.u_ram.memory[i*4+1].value = int(w[4:6], 16)
+        dut.u_ram.memory[i*4+2].value = int(w[2:4], 16)
+        dut.u_ram.memory[i*4+3].value = int(w[0:2], 16)
 
     # Force little endian mode
-    dut.u_core.u_if.u_imem.use_little_endian.value = 1
+    dut.u_ram.use_little_endian.value = 1
 
     cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
     
@@ -134,6 +135,47 @@ async def test_m_type_instructions(dut):
     assert int(reg[7].value) == 2, "DIV failed (remainder truncated)"
     assert int(reg[8].value) == 3, "REM failed (non-zero)"
 
+@cocotb.test()
+async def test_b_type_instructions(dut):
+    """Test B-type branch instructions."""
+    prog = [
+        "addi x1, x0, 10",
+        "addi x2, x0, 20",
+        "beq x1, x2, 8",     # false, shouldn't branch. offset=8 (PC+8)
+        "addi x3, x0, 1",    # this executes (x3=1)
+        "bne x1, x2, 8",     # true, should branch over next instruction
+        "addi x3, x0, 2",    # skipped
+        "blt x1, x2, 8",     # true (10 < 20), branches over next
+        "addi x4, x0, 1",    # skipped
+        "bge x2, x1, 8",     # true (20 >= 10), branches over next
+        "addi x5, x0, 1",    # skipped
+        "nop", "nop", "nop", "nop", "nop"
+    ]
+    await run_program(dut, prog, cycles=40)
+    reg = dut.u_core.u_id.u_regfile.registers
+    assert int(reg[3].value) == 1, "Branch logic failed (beq/bne)"
+    assert int(reg[4].value) == 0, "Branch logic failed (blt)"
+    assert int(reg[5].value) == 0, "Branch logic failed (bge)"
+
+@cocotb.test()
+async def test_j_type_instructions(dut):
+    """Test J-type jump instructions."""
+    prog = [
+        "jal x1, 16",       # PC=0: x1=4, jump to 16
+        "addi x2, x0, 1",   # PC=4: executed 3rd. x2=1.
+        "jal x0, 20",       # PC=8: executed 4th. jump to 28 (end)
+        "nop",              # PC=12: skipped
+        "jalr x3, x1, 0",   # PC=16: executed 2nd. jump to x1+0 = 4. x3 = 20.
+        "nop",              # PC=20
+        "nop",              # PC=24
+        "nop", "nop", "nop" # PC=28: End
+    ]
+    await run_program(dut, prog, cycles=40)
+    reg = dut.u_core.u_id.u_regfile.registers
+    assert int(reg[1].value) == 4, "JAL failed"
+    assert int(reg[3].value) == 20, "JALR failed"
+    assert int(reg[2].value) == 1, "JALR/JAL execution path failed"
+
 def test_isa_exhaustive():
     src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
     run(
@@ -141,9 +183,17 @@ def test_isa_exhaustive():
             os.path.join(src_dir, "timescale.v"), 
             os.path.join(src_dir, "soc_top.v"),
             os.path.join(src_dir, "top_pipeline.v"),
-            os.path.join(src_dir, "memory_bus.v")
+            os.path.join(src_dir, "memory_bus.v"),
+            os.path.join(src_dir, "vga_controller.v"),
+            os.path.join(src_dir, "vga_timing.v"),
+            os.path.join(src_dir, "vga_ram.v"),
+            os.path.join(src_dir, "clint.v"),
+            os.path.join(src_dir, "csr_regfile.v"),
+            os.path.join(src_dir, "spi_controller.v"),
+            os.path.join(src_dir, "system_memory.v")
         ],
         toplevel="soc_top",
         module="test_isa_exhaustive",
+        extra_args=["-Wno-fatal"],
         includes=[os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))]
     )

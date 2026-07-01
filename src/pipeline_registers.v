@@ -24,40 +24,46 @@ module id_ex_reg (
     input            clk, rst, stall, flush,
     input            id_RegWrite, id_MemRead, id_MemWrite,
     input  [1:0]     id_MemToReg, id_ALUOp, id_ALUSrcA,
-    input            id_ALUSrc, id_Branch, id_Jump,
+    input            id_ALUSrc, id_Branch, id_Jump, id_is_csr, id_is_mret, id_is_32bit,
     input  [63:0]    id_pc, id_pc4, id_rs1_data, id_rs2_data, id_immediate,
     input  [4:0]     id_rs1, id_rs2, id_rd,
     input  [2:0]     id_funct3,
     input  [6:0]     id_funct7,
+    input  [11:0]    id_funct12,
 
     output reg           ex_RegWrite, ex_MemRead, ex_MemWrite,
     output reg [1:0]     ex_MemToReg, ex_ALUOp, ex_ALUSrcA,
-    output reg           ex_ALUSrc, ex_Branch, ex_Jump,
+    output reg           ex_ALUSrc, ex_Branch, ex_Jump, ex_is_csr, ex_is_mret, ex_is_32bit,
     output reg [63:0]    ex_pc, ex_pc4, ex_rs1_data, ex_rs2_data, ex_immediate,
     output reg [4:0]     ex_rs1, ex_rs2, ex_rd,
     output reg [2:0]     ex_funct3,
-    output reg [6:0]     ex_funct7
+    output reg [6:0]     ex_funct7,
+    output reg [11:0]    ex_funct12
 );
     always @(posedge clk or posedge rst) begin
         if (rst || flush) begin
             ex_RegWrite  <= 0; ex_MemRead  <= 0; ex_MemWrite <= 0;
             ex_MemToReg  <= 0; ex_ALUOp   <= 0; ex_ALUSrcA <= 0;
             ex_ALUSrc    <= 0; ex_Branch  <= 0; ex_Jump     <= 0;
+            ex_is_csr    <= 0; ex_is_mret <= 0; ex_is_32bit <= 0;
             ex_pc        <= 0; ex_pc4     <= 0;
             ex_rs1_data  <= 0; ex_rs2_data <= 0; ex_immediate <= 0;
             ex_rs1       <= 0; ex_rs2     <= 0; ex_rd       <= 0;
-            ex_funct3    <= 0; ex_funct7  <= 0;
+            ex_funct3    <= 0; ex_funct7  <= 0; ex_funct12  <= 0;
         end else if (!stall) begin
             ex_RegWrite  <= id_RegWrite; ex_MemRead  <= id_MemRead;
             ex_MemWrite  <= id_MemWrite; ex_MemToReg <= id_MemToReg;
             ex_ALUOp     <= id_ALUOp;    ex_ALUSrcA  <= id_ALUSrcA;
             ex_ALUSrc    <= id_ALUSrc;
             ex_Branch    <= id_Branch;  ex_Jump      <= id_Jump;
+            ex_is_csr    <= id_is_csr;  ex_is_mret   <= id_is_mret;
+            ex_is_32bit  <= id_is_32bit;
             ex_pc        <= id_pc;      ex_pc4       <= id_pc4;
             ex_rs1_data  <= id_rs1_data; ex_rs2_data <= id_rs2_data;
             ex_immediate <= id_immediate;
             ex_rs1       <= id_rs1; ex_rs2 <= id_rs2; ex_rd <= id_rd;
             ex_funct3    <= id_funct3;  ex_funct7   <= id_funct7;
+            ex_funct12   <= id_funct12;
         end
     end
 endmodule

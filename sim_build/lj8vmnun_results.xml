@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782940320" />
+    <testcase name="test_bootloader" classname="test_bootloader" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_bootloader.py" lineno="132" time="0.7172303199768066" sim_time_ns="200020.0" ratio_time="278878.3385600153">
+      <failure error_type="AssertionError" error_msg="VGA RAM is completely empty! The game didn't draw anything!&#10;assert 0 &gt; 0" />
+    </testcase>
+  </testsuite>
+</testsuites>

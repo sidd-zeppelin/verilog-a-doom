@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782938063" />
+    <testcase name="test_sd_card_initialization" classname="test_sd_card" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_sd_card.py" lineno="155" time="0.4792141914367676" sim_time_ns="200020.0" ratio_time="417391.645686254" />
+    <testcase name="test_sd_card_read_block" classname="test_sd_card" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_sd_card.py" lineno="391" time="1.6356596946716309" sim_time_ns="700040.0" ratio_time="427986.3362045719" />
+  </testsuite>
+</testsuites>

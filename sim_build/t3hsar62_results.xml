@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782940433" />
+    <testcase name="test_bootloader" classname="test_bootloader" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_bootloader.py" lineno="132" time="10.296888589859009" sim_time_ns="4832440.0" ratio_time="469310.7007838538" />
+  </testsuite>
+</testsuites>

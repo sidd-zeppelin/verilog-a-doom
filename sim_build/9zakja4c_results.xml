@@ -1,6 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1782853682" />
-    <testcase name="regfile_exhaustive_test" classname="test_register_file" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_register_file.py" lineno="7" time="0.0027379989624023438" sim_time_ns="381.0" ratio_time="139152.71891327063" />
-  </testsuite>
-</testsuites>

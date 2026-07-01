@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782939681" />
+    <testcase name="test_bootloader" classname="test_bootloader" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_bootloader.py" lineno="125" time="0.015487909317016602" sim_time_ns="1040.0" ratio_time="67149.15349209525">
+      <failure error_type="AttributeError" error_msg="soc_top.u_core contains no child object named u_regfile" />
+    </testcase>
+  </testsuite>
+</testsuites>

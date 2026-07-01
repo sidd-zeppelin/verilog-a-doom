@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782940131" />
+    <testcase name="test_bootloader" classname="test_bootloader" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_bootloader.py" lineno="125" time="0.009793758392333984" sim_time_ns="40.0" ratio_time="4084.2338964896053">
+      <failure error_type="AttributeError" error_msg="soc_top.u_core contains no child object named branch_taken" />
+    </testcase>
+  </testsuite>
+</testsuites>

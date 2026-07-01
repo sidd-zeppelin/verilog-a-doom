@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782939755" />
+    <testcase name="test_bootloader" classname="test_bootloader" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_bootloader.py" lineno="125" time="0.010568857192993164" sim_time_ns="40.0" ratio_time="3784.704369600036">
+      <failure error_type="AttributeError" error_msg="soc_top.u_core contains no child object named u_pipeline" />
+    </testcase>
+  </testsuite>
+</testsuites>

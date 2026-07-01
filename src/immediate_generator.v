@@ -8,6 +8,7 @@ module immediate_generator (
     always @(*) begin
         case (opcode)
             7'b0010011, // I-type arithmetic: addi
+            7'b0011011, // I-type arithmetic 32-bit: addiw
             7'b0000011, // I-type loads: ld
             7'b1100111: // I-type jump: jalr
                 immediate = {{52{instruction[31]}}, instruction[31:20]};

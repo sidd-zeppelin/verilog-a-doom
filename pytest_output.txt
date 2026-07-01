@@ -1,0 +1,168 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom
+configfile: pyproject.toml
+plugins: cocotb-test-0.2.6
+collected 1 item
+
+tests/test_isa_exhaustive.py F
+
+=================================== FAILURES ===================================
+_____________________________ test_isa_exhaustive ______________________________
+
+    def test_isa_exhaustive():
+        src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+>       run(
+            verilog_sources=[
+                os.path.join(src_dir, "timescale.v"),
+                os.path.join(src_dir, "soc_top.v"),
+                os.path.join(src_dir, "top_pipeline.v"),
+                os.path.join(src_dir, "memory_bus.v"),
+                os.path.join(src_dir, "vga_controller.v"),
+                os.path.join(src_dir, "vga_timing.v"),
+                os.path.join(src_dir, "vga_ram.v"),
+                os.path.join(src_dir, "clint.v"),
+                os.path.join(src_dir, "csr_regfile.v"),
+                os.path.join(src_dir, "spi_controller.v"),
+                os.path.join(src_dir, "system_memory.v")
+            ],
+            toplevel="soc_top",
+            module="test_isa_exhaustive",
+            extra_args=["-Wno-fatal"],
+            includes=[os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))]
+        )
+E       SystemExit: FAILED 7 tests.
+
+tests/test_isa_exhaustive.py:181: SystemExit
+------------------------------ Captured log call -------------------------------
+INFO     cocotb:simulator.py:295 Running command: perl /home/sidd-zeppelin/miniconda3/bin/verilator -cc --exe -Mdir /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/sim_build -DCOCOTB_SIM=1 --top-module soc_top --vpi --public-flat-rw --prefix Vtop -o soc_top -LDFLAGS -Wl,-rpath,/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb/libs -L/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb/libs -lcocotbvpi_verilator -Wno-fatal -I/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb/share/lib/verilator/verilator.cpp /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/timescale.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/soc_top.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/top_pipeline.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/memory_bus.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/vga_controller.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/vga_timing.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/vga_ram.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/clint.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/csr_regfile.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/spi_controller.v /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/src/system_memory.v
+INFO     cocotb:simulator.py:266 - V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev conda-forge build 0
+INFO     cocotb:simulator.py:266 - Verilator: Built from 0.000 MB sources in 0 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+INFO     cocotb:simulator.py:266 - Verilator: Walltime 0.001 s (elab=0.000, cvt=0.000, bld=0.000); cpu 0.001 s on 1 threads; alloced 20.273 MB
+INFO     cocotb:simulator.py:295 Running command: make -C /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/sim_build -f Vtop.mk
+INFO     cocotb:simulator.py:266 make: Entering directory '/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/sim_build'
+INFO     cocotb:simulator.py:266 make: Nothing to be done for 'default'.
+INFO     cocotb:simulator.py:266 make: Leaving directory '/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/sim_build'
+INFO     cocotb:simulator.py:295 Running command: /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/sim_build/soc_top
+INFO     cocotb:simulator.py:266      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.13.0rc1 interpreter at /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/bin/python3
+INFO     cocotb:simulator.py:266      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb                             Running on Verilator version 5.044 2026-01-01
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb                             Seeding Python random module with 1782937888
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb                             Running tests
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb.regression                  running test_isa_exhaustive.test_r_type_instructions (1/7)
+INFO     cocotb:simulator.py:266                                                             Test all R-type instructions.
+INFO     cocotb:simulator.py:266      0.00ns WARNING  ..uctions.test_r_type_instructions soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266                                                         Traceback (most recent call last):
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 54, in test_r_type_instructions
+INFO     cocotb:simulator.py:266                                                             await run_program(dut, prog, cycles=40)
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 20, in run_program
+INFO     cocotb:simulator.py:266                                                             dut.u_core.u_if.u_imem.use_little_endian.value = 1
+INFO     cocotb:simulator.py:266                                                             ^^^^^^^^^^^^^^^^^^^^^^
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb/handle.py", line 484, in __getattr__
+INFO     cocotb:simulator.py:266                                                             raise AttributeError(f"{self._path} contains no child object named {name}")
+INFO     cocotb:simulator.py:266                                                         AttributeError: soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266      0.00ns WARNING  cocotb.regression                  test_isa_exhaustive.test_r_type_instructions failed
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb.regression                  running test_isa_exhaustive.test_i_type_instructions (2/7)
+INFO     cocotb:simulator.py:266                                                             Test I-type logic instructions.
+INFO     cocotb:simulator.py:266 %Warning: instructions.txt:0: $readmem file not found
+INFO     cocotb:simulator.py:266      0.00ns WARNING  ..uctions.test_i_type_instructions soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266                                                         Traceback (most recent call last):
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 79, in test_i_type_instructions
+INFO     cocotb:simulator.py:266                                                             await run_program(dut, prog)
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 20, in run_program
+INFO     cocotb:simulator.py:266                                                             dut.u_core.u_if.u_imem.use_little_endian.value = 1
+INFO     cocotb:simulator.py:266                                                             ^^^^^^^^^^^^^^^^^^^^^^
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb/handle.py", line 484, in __getattr__
+INFO     cocotb:simulator.py:266                                                             raise AttributeError(f"{self._path} contains no child object named {name}")
+INFO     cocotb:simulator.py:266                                                         AttributeError: soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266      0.00ns WARNING  cocotb.regression                  test_isa_exhaustive.test_i_type_instructions failed
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb.regression                  running test_isa_exhaustive.test_memory_instructions (3/7)
+INFO     cocotb:simulator.py:266                                                             Test memory access instructions (load/store).
+INFO     cocotb:simulator.py:266      0.00ns WARNING  ..uctions.test_memory_instructions soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266                                                         Traceback (most recent call last):
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 97, in test_memory_instructions
+INFO     cocotb:simulator.py:266                                                             await run_program(dut, prog, cycles=40)
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 20, in run_program
+INFO     cocotb:simulator.py:266                                                             dut.u_core.u_if.u_imem.use_little_endian.value = 1
+INFO     cocotb:simulator.py:266                                                             ^^^^^^^^^^^^^^^^^^^^^^
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb/handle.py", line 484, in __getattr__
+INFO     cocotb:simulator.py:266                                                             raise AttributeError(f"{self._path} contains no child object named {name}")
+INFO     cocotb:simulator.py:266                                                         AttributeError: soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266      0.00ns WARNING  cocotb.regression                  test_isa_exhaustive.test_memory_instructions failed
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb.regression                  running test_isa_exhaustive.test_u_type_instructions (4/7)
+INFO     cocotb:simulator.py:266                                                             Test U-type instructions.
+INFO     cocotb:simulator.py:266      0.00ns WARNING  ..uctions.test_u_type_instructions soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266                                                         Traceback (most recent call last):
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 108, in test_u_type_instructions
+INFO     cocotb:simulator.py:266                                                             await run_program(dut, prog)
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 20, in run_program
+INFO     cocotb:simulator.py:266                                                             dut.u_core.u_if.u_imem.use_little_endian.value = 1
+INFO     cocotb:simulator.py:266                                                             ^^^^^^^^^^^^^^^^^^^^^^
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb/handle.py", line 484, in __getattr__
+INFO     cocotb:simulator.py:266                                                             raise AttributeError(f"{self._path} contains no child object named {name}")
+INFO     cocotb:simulator.py:266                                                         AttributeError: soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266      0.00ns WARNING  cocotb.regression                  test_isa_exhaustive.test_u_type_instructions failed
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb.regression                  running test_isa_exhaustive.test_m_type_instructions (5/7)
+INFO     cocotb:simulator.py:266                                                             Test M-type hardware math instructions.
+INFO     cocotb:simulator.py:266      0.00ns WARNING  ..uctions.test_m_type_instructions soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266                                                         Traceback (most recent call last):
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 129, in test_m_type_instructions
+INFO     cocotb:simulator.py:266                                                             await run_program(dut, prog, cycles=60)
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 20, in run_program
+INFO     cocotb:simulator.py:266                                                             dut.u_core.u_if.u_imem.use_little_endian.value = 1
+INFO     cocotb:simulator.py:266                                                             ^^^^^^^^^^^^^^^^^^^^^^
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb/handle.py", line 484, in __getattr__
+INFO     cocotb:simulator.py:266                                                             raise AttributeError(f"{self._path} contains no child object named {name}")
+INFO     cocotb:simulator.py:266                                                         AttributeError: soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266      0.00ns WARNING  cocotb.regression                  test_isa_exhaustive.test_m_type_instructions failed
+INFO     cocotb:simulator.py:266      0.00ns INFO     cocotb.regression                  running test_isa_exhaustive.test_b_type_instructions (6/7)
+INFO     cocotb:simulator.py:266                                                             Test B-type branch instructions.
+INFO     cocotb:simulator.py:266      0.01ns WARNING  ..uctions.test_b_type_instructions soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266                                                         Traceback (most recent call last):
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 154, in test_b_type_instructions
+INFO     cocotb:simulator.py:266                                                             await run_program(dut, prog, cycles=40)
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 20, in run_program
+INFO     cocotb:simulator.py:266                                                             dut.u_core.u_if.u_imem.use_little_endian.value = 1
+INFO     cocotb:simulator.py:266                                                             ^^^^^^^^^^^^^^^^^^^^^^
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb/handle.py", line 484, in __getattr__
+INFO     cocotb:simulator.py:266                                                             raise AttributeError(f"{self._path} contains no child object named {name}")
+INFO     cocotb:simulator.py:266                                                         AttributeError: soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266      0.01ns WARNING  cocotb.regression                  test_isa_exhaustive.test_b_type_instructions failed
+INFO     cocotb:simulator.py:266      0.01ns INFO     cocotb.regression                  running test_isa_exhaustive.test_j_type_instructions (7/7)
+INFO     cocotb:simulator.py:266                                                             Test J-type jump instructions.
+INFO     cocotb:simulator.py:266      0.01ns WARNING  ..uctions.test_j_type_instructions soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266                                                         Traceback (most recent call last):
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 173, in test_j_type_instructions
+INFO     cocotb:simulator.py:266                                                             await run_program(dut, prog, cycles=40)
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py", line 20, in run_program
+INFO     cocotb:simulator.py:266                                                             dut.u_core.u_if.u_imem.use_little_endian.value = 1
+INFO     cocotb:simulator.py:266                                                             ^^^^^^^^^^^^^^^^^^^^^^
+INFO     cocotb:simulator.py:266                                                           File "/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/.venv/lib/python3.13/site-packages/cocotb/handle.py", line 484, in __getattr__
+INFO     cocotb:simulator.py:266                                                             raise AttributeError(f"{self._path} contains no child object named {name}")
+INFO     cocotb:simulator.py:266                                                         AttributeError: soc_top.u_core.u_if contains no child object named u_imem
+INFO     cocotb:simulator.py:266      0.01ns WARNING  cocotb.regression                  test_isa_exhaustive.test_j_type_instructions failed
+INFO     cocotb:simulator.py:266      0.01ns INFO     cocotb.regression                  ******************************************************************************************************
+INFO     cocotb:simulator.py:266                                                         ** TEST                                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+INFO     cocotb:simulator.py:266                                                         ******************************************************************************************************
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_r_type_instructions   FAIL           0.00           0.00          0.00  **
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_i_type_instructions   FAIL           0.00           0.00          0.00  **
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_memory_instructions   FAIL           0.00           0.00          0.00  **
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_u_type_instructions   FAIL           0.00           0.00          0.00  **
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_m_type_instructions   FAIL           0.00           0.00          0.00  **
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_b_type_instructions   FAIL           0.00           0.00          0.00  **
+INFO     cocotb:simulator.py:266                                                         ** test_isa_exhaustive.test_j_type_instructions   FAIL           0.00           0.00          0.00  **
+INFO     cocotb:simulator.py:266                                                         ******************************************************************************************************
+INFO     cocotb:simulator.py:266                                                         ** TESTS=7 PASS=0 FAIL=7 SKIP=0                                  0.01           0.01          0.51  **
+INFO     cocotb:simulator.py:266                                                         ******************************************************************************************************
+INFO     cocotb:simulator.py:266 - :0: Verilog $finish
+ERROR    cocotb:simulator.py:217 Failed: test_isa_exhaustive::test_r_type_instructions
+ERROR    cocotb:simulator.py:217 Failed: test_isa_exhaustive::test_i_type_instructions
+ERROR    cocotb:simulator.py:217 Failed: test_isa_exhaustive::test_memory_instructions
+ERROR    cocotb:simulator.py:217 Failed: test_isa_exhaustive::test_u_type_instructions
+ERROR    cocotb:simulator.py:217 Failed: test_isa_exhaustive::test_m_type_instructions
+ERROR    cocotb:simulator.py:217 Failed: test_isa_exhaustive::test_b_type_instructions
+ERROR    cocotb:simulator.py:217 Failed: test_isa_exhaustive::test_j_type_instructions
+=========================== short test summary info ============================
+FAILED tests/test_isa_exhaustive.py::test_isa_exhaustive - SystemExit: FAILED...
+============================== 1 failed in 0.40s ===============================

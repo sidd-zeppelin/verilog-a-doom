@@ -60,19 +60,17 @@ def test_alu():
     src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
     run(
         verilog_sources=[
-            os.path.join(src_dir, "timescale.v"),
-            os.path.join(src_dir, "alu.v"),
-            os.path.join(src_dir, "addsub_rca_64b.v"), 
-            os.path.join(src_dir, "rca_64b.v"),
-            os.path.join(src_dir, "fa_1b.v"),
-            os.path.join(src_dir, "and_64b.v"),
-            os.path.join(src_dir, "or_64b.v"),
-            os.path.join(src_dir, "xor_64b.v"),
-            os.path.join(src_dir, "sll_64b.v"),
-            os.path.join(src_dir, "srl_64b.v"),
-            os.path.join(src_dir, "sra_64b.v"),
-            os.path.join(src_dir, "slt_64b.v"),
-            os.path.join(src_dir, "sltu_64b.v")
+            os.path.join(src_dir, "timescale.v"), 
+            os.path.join(src_dir, "soc_top.v"),
+            os.path.join(src_dir, "top_pipeline.v"),
+            os.path.join(src_dir, "memory_bus.v"),
+            os.path.join(src_dir, "vga_controller.v"),
+            os.path.join(src_dir, "vga_timing.v"),
+            os.path.join(src_dir, "vga_ram.v"),
+            os.path.join(src_dir, "clint.v"),
+            os.path.join(src_dir, "csr_regfile.v"),
+            os.path.join(src_dir, "spi_controller.v"),
+            os.path.join(src_dir, "system_memory.v")
         ],
         toplevel="alu",
         module="test_alu"

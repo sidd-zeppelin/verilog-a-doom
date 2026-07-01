@@ -42,6 +42,64 @@ We are building a **Memory Bus** that connects the processor to the RAM, but als
 ### 3. The System-on-Chip (SoC)
 By combining the RV64IM CPU core, the Hardware Multiplier, the System Memory, the Memory Bus, and the MMIO Peripherals into a single cohesive unit, we elevate the project from a simple processor into a complete System-on-Chip capable of running one of the most famous games in history.
 
+## 🚀 Current Status & Interactive Emulator
+
+The processor has successfully achieved **End-to-End Execution**! The RISC-V SoC can successfully boot, initialize the SPI controller, read game binaries from a simulated SD Card, and render frames directly to the VGA Memory-Mapped Framebuffer. 
+
+To allow you to actually play the game interactively, we built a hybrid, high-speed emulator:
+- **C++ Verilator Backend:** Simulates the SystemVerilog hardware at ~10-20 MHz, intercepting VGA writes and piping raw RGB frames to standard output.
+- **Python Pygame Frontend:** Reads the frames, renders them to a window, and pipes your keyboard inputs (WASD/Arrows) directly into the hardware's MMIO button registers.
+
+**Try it out:**
+```bash
+./play.sh
+```
+
+---
+
+## 🏃‍♂️ Getting Started (How to Run)
+
+This project simulates a full RISC-V System-on-Chip (SoC). You can run this project in two primary ways: interactively using our high-speed Emulator, or via the automated Python test suite.
+
+### Prerequisites & Dependencies
+- **Python 3.10+**: Used for our verification framework and emulator frontend.
+- **`uv` Package Manager** (or standard `pip`): To install Python dependencies (`cocotb`, `pytest`, `pygame`).
+- **Verilator**: The high-performance C++ compiler for SystemVerilog (version 5.0+ recommended).
+- **RISC-V GCC Toolchain**: Specifically `riscv64-unknown-elf-gcc`, required to compile the C game code (`doom.c` and `bootloader.c`) into RISC-V machine code.
+- **Make**: For building the software and C++ emulator.
+
+### 1. Installation
+Install the required Python dependencies:
+```bash
+uv pip install -e .
+# OR if you are using standard pip:
+pip install -r requirements.txt
+```
+
+### 2. Compiling the Software (The Game)
+Before you can run the CPU, you need a program for it to execute:
+```bash
+# 1. Compile the Bootloader (loaded into Instruction RAM)
+make -C software/bootloader
+
+# 2. Compile the Game (loaded over SPI from the simulated SD Card)
+make -C software/doom
+```
+
+### 3. Running the Interactive Emulator
+The fastest and most fun way to run the SoC is via the **Interactive Emulator**. 
+```bash
+./play.sh
+```
+- **What it does**: Compiles the SoC into C++, copies the `bootloader.hex` into the correct spot, and launches the Pygame window.
+- **Controls**: Use **WASD** or **Arrow Keys** to move, **Space** to Fire, and **E** to interact.
+
+### 4. Running the Automated Test Suite
+If you are modifying the processor's Verilog source code, verify your changes using the `cocotb` test suite (using Verilator as the simulation backend):
+```bash
+SIM=verilator uv run pytest tests/
+```
+
 ---
 
 ## 🛠️ Project Structure & Documentation

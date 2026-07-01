@@ -131,6 +131,16 @@ class RISCVAssembler:
         if mnem == 'mv':
             return cls.encode_i(0, args[1], 0x0, args[0], 0x13) # addi rd, rs1, 0
 
+        # SYSTEM
+        if mnem == 'csrrw':
+            return cls.encode_i(int(args[1], 0), args[2], 0x1, args[0], 0x73)
+        if mnem == 'csrrs':
+            return cls.encode_i(int(args[1], 0), args[2], 0x2, args[0], 0x73)
+        if mnem == 'csrrc':
+            return cls.encode_i(int(args[1], 0), args[2], 0x3, args[0], 0x73)
+        if mnem == 'mret':
+            return cls.encode_i(0x302, 0, 0x0, 0, 0x73)
+
         raise ValueError(f"Unsupported instruction: {inst}")
 
     @classmethod

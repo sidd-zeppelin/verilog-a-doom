@@ -9,12 +9,12 @@ async def run_program(dut, prog, cycles=30):
     hex_prog = RISCVAssembler.assemble_to_hex(prog)
     
     for i, w in enumerate(hex_prog):
-        dut.u_core.u_if.u_imem.mem[i*4].value = int(w[6:8], 16)
-        dut.u_core.u_if.u_imem.mem[i*4+1].value = int(w[4:6], 16)
-        dut.u_core.u_if.u_imem.mem[i*4+2].value = int(w[2:4], 16)
-        dut.u_core.u_if.u_imem.mem[i*4+3].value = int(w[0:2], 16)
+        dut.u_ram.memory[i*4].value = int(w[6:8], 16)
+        dut.u_ram.memory[i*4+1].value = int(w[4:6], 16)
+        dut.u_ram.memory[i*4+2].value = int(w[2:4], 16)
+        dut.u_ram.memory[i*4+3].value = int(w[0:2], 16)
 
-    dut.u_core.u_if.u_imem.use_little_endian.value = 1
+    dut.u_ram.use_little_endian.value = 1
     
     cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
 
@@ -146,9 +146,17 @@ def test_pipeline_hazards():
             os.path.join(src_dir, "timescale.v"), 
             os.path.join(src_dir, "soc_top.v"),
             os.path.join(src_dir, "top_pipeline.v"),
-            os.path.join(src_dir, "memory_bus.v")
+            os.path.join(src_dir, "memory_bus.v"),
+            os.path.join(src_dir, "vga_controller.v"),
+            os.path.join(src_dir, "vga_timing.v"),
+            os.path.join(src_dir, "vga_ram.v"),
+            os.path.join(src_dir, "clint.v"),
+            os.path.join(src_dir, "csr_regfile.v"),
+            os.path.join(src_dir, "spi_controller.v"),
+            os.path.join(src_dir, "system_memory.v")
         ],
         toplevel="soc_top",
         module="test_pipeline_hazards",
+        extra_args=["-Wno-fatal"],
         includes=[os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))]
     )

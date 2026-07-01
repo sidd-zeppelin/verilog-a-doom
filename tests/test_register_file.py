@@ -79,7 +79,19 @@ async def regfile_exhaustive_test(dut):
 def test_register_file():
     src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
     run(
-        verilog_sources=[os.path.join(src_dir, "timescale.v"), os.path.join(src_dir, "register_file.v")],
+        verilog_sources=[
+            os.path.join(src_dir, "timescale.v"), 
+            os.path.join(src_dir, "soc_top.v"),
+            os.path.join(src_dir, "top_pipeline.v"),
+            os.path.join(src_dir, "memory_bus.v"),
+            os.path.join(src_dir, "vga_controller.v"),
+            os.path.join(src_dir, "vga_timing.v"),
+            os.path.join(src_dir, "vga_ram.v"),
+            os.path.join(src_dir, "clint.v"),
+            os.path.join(src_dir, "csr_regfile.v"),
+            os.path.join(src_dir, "spi_controller.v"),
+            os.path.join(src_dir, "system_memory.v")
+        ],
         toplevel="register_file",
         module="test_register_file"
     )

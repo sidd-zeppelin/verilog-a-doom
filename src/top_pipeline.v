@@ -8,7 +8,6 @@
 `include "src/pipeline_registers.v"
 `include "src/hazards/forwarding_unit.v"
 `include "src/hazards/hazard_detection_unit.v"
-`include "src/instruction_mem.v"
 `include "src/pc_adder_4.v"
 `include "src/register_file.v"
 `include "src/control_unit.v"
@@ -16,7 +15,6 @@
 `include "src/alu_control.v"
 `include "src/alu.v"
 `include "src/branch_target_adder.v"
-`include "src/data_mem.v"
 `include "src/addsub_rca_64b.v"
 `include "src/rca_64b.v"
 `include "src/fa_1b.v"
@@ -43,7 +41,10 @@ module top_pipeline (
     output [63:0] dmem_address,
     output [63:0] dmem_write_data,
     output [2:0]  dmem_funct3,
-    input  [63:0] dmem_read_data_in
+    input  [63:0] dmem_read_data_in,
+
+    // Interrupts
+    input         timer_interrupt
 );
     // ----------------------------------------------------
     // hazard / forwarding control
@@ -63,6 +64,9 @@ module top_pipeline (
     // ----------------------------------------------------
     wire [63:0] if_pc, if_pc4;
     wire [31:0] if_instruction;
+    
+    assign imem_address = if_pc;
+    assign if_instruction = imem_instruction;
 
     // ----------------------------------------------------
     // if/id register outputs
@@ -80,6 +84,8 @@ module top_pipeline (
     wire [4:0]  id_rs1, id_rs2, id_rd;
     wire [2:0]  id_funct3;
     wire [6:0]  id_funct7;
+    wire [11:0] id_funct12;
+    wire        id_is_csr, id_is_mret, id_is_32bit;
     wire [63:0] id_pc_out, id_pc4_out;
 
     // ----------------------------------------------------
@@ -92,12 +98,23 @@ module top_pipeline (
     wire [4:0]  ex_rs1, ex_rs2, ex_rd;
     wire [2:0]  ex_funct3;
     wire [6:0]  ex_funct7;
+    wire [11:0] ex_funct12;
+    wire        ex_is_csr, ex_is_mret, ex_is_32bit;
 
     // ----------------------------------------------------
     // ex stage outputs
     // ----------------------------------------------------
     wire [63:0] ex_alu_result, ex_forwarded_rs2, ex_branch_target;
     wire        ex_alu_zero, ex_branch_taken;
+    wire [63:0] trap_target_pc;
+    wire        mstatus_mie, mie_mtie;
+
+    // Trap Logic
+    wire trap_pending = timer_interrupt & mstatus_mie & mie_mtie;
+    // We only take a trap if there's no branch or flush happening from EX
+    wire take_trap = trap_pending & ~(ex_branch_taken | ex_is_mret | ex_mem_flush);
+    wire [63:0] trap_pc = id_pc;
+    wire trap_flush = take_trap | ex_is_mret;
 
     // ----------------------------------------------------
     // ex/mem register outputs
@@ -131,7 +148,10 @@ module top_pipeline (
     // pc-next mux: branch taken -> target, else pc+4
     // ----------------------------------------------------
     wire [63:0] pc_next;
-    assign pc_next = ex_branch_taken ? ex_branch_target : if_pc4;
+    assign pc_next = take_trap ? trap_target_pc : 
+                     ex_is_mret ? trap_target_pc : 
+                     ex_branch_taken ? ex_branch_target : 
+                     if_pc4;
 
     // forwarded data buses for ex stage
     wire [63:0] forward_mem_data = mem_alu_result;
@@ -184,15 +204,14 @@ module top_pipeline (
 
     pipeline_if u_if (
         .if_pc          (if_pc),
-        .if_pc4         (if_pc4),
-        .if_instruction (if_instruction)
+        .if_pc4         (if_pc4)
     );
 
     if_id_reg u_if_id (
         .clk            (clk),
         .rst            (rst),
         .stall          (if_id_stall),
-        .flush          (if_id_flush_ext | ex_branch_taken),
+        .flush          (if_id_flush_ext | ex_branch_taken | trap_flush),
         .if_pc          (if_pc),
         .if_pc4         (if_pc4),
         .if_instruction (if_instruction),
@@ -227,6 +246,10 @@ module top_pipeline (
         .id_rd         (id_rd),
         .id_funct3     (id_funct3),
         .id_funct7     (id_funct7),
+        .id_funct12    (id_funct12),
+        .id_is_csr     (id_is_csr),
+        .id_is_mret    (id_is_mret),
+        .id_is_32bit   (id_is_32bit),
         .id_pc_out     (id_pc_out),
         .id_pc4_out    (id_pc4_out)
     );
@@ -235,7 +258,7 @@ module top_pipeline (
         .clk           (clk),
         .rst           (rst),
         .stall         (id_ex_stall),
-        .flush         (id_ex_flush_ext | ex_branch_taken),
+        .flush         (id_ex_flush_ext | ex_branch_taken | trap_flush),
         .id_RegWrite   (id_RegWrite),
         .id_MemRead    (id_MemRead),
         .id_MemWrite   (id_MemWrite),
@@ -243,6 +266,9 @@ module top_pipeline (
         .id_ALUSrc     (id_ALUSrc),
         .id_Branch     (id_Branch),
         .id_Jump       (id_Jump),
+        .id_is_csr     (id_is_csr),
+        .id_is_mret    (id_is_mret),
+        .id_is_32bit   (id_is_32bit),
         .id_ALUOp      (id_ALUOp),
         .id_ALUSrcA    (id_ALUSrcA),
         .id_pc         (id_pc_out),
@@ -255,6 +281,7 @@ module top_pipeline (
         .id_rd         (id_rd),
         .id_funct3     (id_funct3),
         .id_funct7     (id_funct7),
+        .id_funct12    (id_funct12),
         .ex_RegWrite   (ex_RegWrite),
         .ex_MemRead    (ex_MemRead),
         .ex_MemWrite   (ex_MemWrite),
@@ -262,6 +289,9 @@ module top_pipeline (
         .ex_ALUSrc     (ex_ALUSrc),
         .ex_Branch     (ex_Branch),
         .ex_Jump       (ex_Jump),
+        .ex_is_csr     (ex_is_csr),
+        .ex_is_mret    (ex_is_mret),
+        .ex_is_32bit   (ex_is_32bit),
         .ex_ALUOp      (ex_ALUOp),
         .ex_ALUSrcA    (ex_ALUSrcA),
         .ex_pc         (ex_pc),
@@ -273,7 +303,8 @@ module top_pipeline (
         .ex_rs2        (ex_rs2),
         .ex_rd         (ex_rd),
         .ex_funct3     (ex_funct3),
-        .ex_funct7     (ex_funct7)
+        .ex_funct7     (ex_funct7),
+        .ex_funct12    (ex_funct12)
     );
 
     pipeline_ex u_ex (
@@ -289,6 +320,13 @@ module top_pipeline (
         .ex_rd             (ex_rd),
         .ex_funct3         (ex_funct3),
         .ex_funct7         (ex_funct7),
+        .ex_funct12        (ex_funct12),
+        .ex_is_csr         (ex_is_csr),
+        .ex_is_mret        (ex_is_mret),
+        .ex_is_32bit       (ex_is_32bit),
+        .timer_interrupt   (timer_interrupt),
+        .take_trap         (take_trap),
+        .trap_pc           (trap_pc),
         .ex_ALUSrc         (ex_ALUSrc),
         .ex_ALUOp          (ex_ALUOp),
         .ex_ALUSrcA        (ex_ALUSrcA),
@@ -303,7 +341,10 @@ module top_pipeline (
         .ex_forwarded_rs2  (ex_forwarded_rs2),
         .ex_branch_target  (ex_branch_target),
         .ex_branch_taken   (ex_branch_taken),
-        .multdiv_busy      (multdiv_busy)
+        .multdiv_busy      (multdiv_busy),
+        .trap_target_pc    (trap_target_pc),
+        .mstatus_mie       (mstatus_mie),
+        .mie_mtie          (mie_mtie)
     );
 
     ex_mem_reg u_ex_mem (

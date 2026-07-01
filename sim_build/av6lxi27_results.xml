@@ -1,0 +1,12 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782937986" />
+    <testcase name="test_r_type_instructions" classname="test_isa_exhaustive" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py" lineno="37" time="0.0034863948822021484" sim_time_ns="410.0" ratio_time="117599.98905833277" />
+    <testcase name="test_i_type_instructions" classname="test_isa_exhaustive" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py" lineno="67" time="0.0021097660064697266" sim_time_ns="320.0" ratio_time="151675.58820205674" />
+    <testcase name="test_memory_instructions" classname="test_isa_exhaustive" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py" lineno="87" time="0.0027217864990234375" sim_time_ns="420.0" ratio_time="154310.4134548003" />
+    <testcase name="test_u_type_instructions" classname="test_isa_exhaustive" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py" lineno="100" time="0.0022623538970947266" sim_time_ns="320.0" ratio_time="141445.59806091263" />
+    <testcase name="test_m_type_instructions" classname="test_isa_exhaustive" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py" lineno="113" time="0.003428220748901367" sim_time_ns="620.0" ratio_time="180851.83114263858" />
+    <testcase name="test_b_type_instructions" classname="test_isa_exhaustive" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py" lineno="138" time="0.002424955368041992" sim_time_ns="420.0" ratio_time="173199.06400550585" />
+    <testcase name="test_j_type_instructions" classname="test_isa_exhaustive" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_isa_exhaustive.py" lineno="160" time="0.0028235912322998047" sim_time_ns="420.0" ratio_time="148746.74322384532" />
+  </testsuite>
+</testsuites>
