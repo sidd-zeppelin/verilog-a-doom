@@ -19,7 +19,7 @@ module soc_top (
     
     // Debug Interface for Fast Emulator
     output        dbg_vga_we,
-    output [13:0] dbg_vga_addr,
+    output [15:0] dbg_vga_addr,
     output [63:0] dbg_vga_data
 );
 
@@ -54,13 +54,13 @@ module soc_top (
     // Memory Bus / Interconnect
     // ----------------------------------------------------
     wire        ram_read_req, ram_write_req;
-    wire [12:0] ram_address;
+    wire [23:0] ram_address;
     wire [63:0] ram_write_data;
     wire [2:0]  ram_funct3;
     wire [63:0] ram_read_data;
 
     wire        vga_read_req, vga_write_req;
-    wire [13:0] vga_address;
+    wire [15:0] vga_address;
     wire [63:0] vga_write_data;
     wire [2:0]  vga_funct3;
     wire [63:0] vga_read_data;

@@ -3,6 +3,7 @@ import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge
 from cocotb_test.simulator import run
+# pyrefly: ignore [missing-import]
 from riscv_assembler import RISCVAssembler
 
 async def run_program(dut, prog, cycles=30):

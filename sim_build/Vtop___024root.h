@@ -6,7 +6,7 @@
 #define VERILATED_VTOP___024ROOT_H_  // guard
 
 #include "verilated.h"
-class Vtop_rca_64b;
+class Vtop_cla_64b;
 
 
 class Vtop__Syms;
@@ -14,9 +14,9 @@ class Vtop__Syms;
 class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
   public:
     // CELLS
-    Vtop_rca_64b* __PVT__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst;
-    Vtop_rca_64b* __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__rca_inst;
-    Vtop_rca_64b* __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst;
+    Vtop_cla_64b* __PVT__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst;
+    Vtop_cla_64b* __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__cla_inst;
+    Vtop_cla_64b* __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst;
 
     // DESIGN SPECIFIC STATE
     // Anonymous structures to workaround compiler member-count bugs
@@ -34,6 +34,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         VL_OUT8(spi_mosi,0,0);
         VL_IN8(spi_miso,0,0);
         VL_OUT8(spi_cs_n,0,0);
+        VL_OUT8(dbg_vga_we,0,0);
         CData/*0:0*/ soc_top__DOT__clk;
         CData/*0:0*/ soc_top__DOT__rst;
         CData/*7:0*/ soc_top__DOT__buttons;
@@ -47,6 +48,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ soc_top__DOT__spi_mosi;
         CData/*0:0*/ soc_top__DOT__spi_miso;
         CData/*0:0*/ soc_top__DOT__spi_cs_n;
+        CData/*0:0*/ soc_top__DOT__dbg_vga_we;
         CData/*0:0*/ soc_top__DOT__dmem_read_req;
         CData/*0:0*/ soc_top__DOT__dmem_write_req;
         CData/*2:0*/ soc_top__DOT__dmem_funct3;
@@ -83,10 +85,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ soc_top__DOT__u_core__DOT__id_ex_flush_ext;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__ex_mem_flush;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__multdiv_busy;
-        CData/*1:0*/ soc_top__DOT__u_core__DOT__ForwardA;
-        CData/*1:0*/ soc_top__DOT__u_core__DOT__ForwardB;
     };
     struct {
+        CData/*1:0*/ soc_top__DOT__u_core__DOT__ForwardA;
+        CData/*1:0*/ soc_top__DOT__u_core__DOT__ForwardB;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__id_RegWrite;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__id_MemRead;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__id_MemWrite;
@@ -149,10 +151,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*4:0*/ soc_top__DOT__u_core__DOT__u_forwarding__DOT__wb_rd;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_forwarding__DOT__mem_RegWrite;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_forwarding__DOT__wb_RegWrite;
-        CData/*1:0*/ soc_top__DOT__u_core__DOT__u_forwarding__DOT__ForwardA;
-        CData/*1:0*/ soc_top__DOT__u_core__DOT__u_forwarding__DOT__ForwardB;
     };
     struct {
+        CData/*1:0*/ soc_top__DOT__u_core__DOT__u_forwarding__DOT__ForwardA;
+        CData/*1:0*/ soc_top__DOT__u_core__DOT__u_forwarding__DOT__ForwardB;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_hazard__DOT__ex_MemRead;
         CData/*4:0*/ soc_top__DOT__u_core__DOT__u_hazard__DOT__ex_rd;
         CData/*4:0*/ soc_top__DOT__u_core__DOT__u_hazard__DOT__id_rs1;
@@ -215,10 +217,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_id__DOT__u_regfile__DOT__clk;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_id__DOT__u_regfile__DOT__rst;
         CData/*4:0*/ soc_top__DOT__u_core__DOT__u_id__DOT__u_regfile__DOT__rs1;
-        CData/*4:0*/ soc_top__DOT__u_core__DOT__u_id__DOT__u_regfile__DOT__rs2;
-        CData/*4:0*/ soc_top__DOT__u_core__DOT__u_id__DOT__u_regfile__DOT__rd;
     };
     struct {
+        CData/*4:0*/ soc_top__DOT__u_core__DOT__u_id__DOT__u_regfile__DOT__rs2;
+        CData/*4:0*/ soc_top__DOT__u_core__DOT__u_id__DOT__u_regfile__DOT__rd;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_id__DOT__u_regfile__DOT__reg_write;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_id__DOT__u_regfile__DOT__zero_flag;
         CData/*6:0*/ soc_top__DOT__u_core__DOT__u_id__DOT__u_immgen__DOT__opcode;
@@ -281,10 +283,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*1:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__ForwardB;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__ex_alu_zero;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__ex_branch_taken;
-        CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__multdiv_busy;
-        CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__mstatus_mie;
     };
     struct {
+        CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__multdiv_busy;
+        CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__mstatus_mie;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__mie_mtie;
         CData/*3:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__alu_ctrl;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__is_m_ext;
@@ -347,10 +349,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex_mem__DOT__ex_alu_zero;
         CData/*4:0*/ soc_top__DOT__u_core__DOT__u_ex_mem__DOT__ex_rd;
         CData/*2:0*/ soc_top__DOT__u_core__DOT__u_ex_mem__DOT__ex_funct3;
-        CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex_mem__DOT__mem_RegWrite;
-        CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex_mem__DOT__mem_MemRead;
     };
     struct {
+        CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex_mem__DOT__mem_RegWrite;
+        CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex_mem__DOT__mem_MemRead;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex_mem__DOT__mem_MemWrite;
         CData/*1:0*/ soc_top__DOT__u_core__DOT__u_ex_mem__DOT__mem_MemToReg;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex_mem__DOT__mem_Branch;
@@ -413,10 +415,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ soc_top__DOT__u_spi__DOT__read_req;
         CData/*0:0*/ soc_top__DOT__u_spi__DOT__write_req;
         CData/*3:0*/ soc_top__DOT__u_spi__DOT__address;
-        CData/*0:0*/ soc_top__DOT__u_spi__DOT__sck;
-        CData/*0:0*/ soc_top__DOT__u_spi__DOT__mosi;
     };
     struct {
+        CData/*0:0*/ soc_top__DOT__u_spi__DOT__sck;
+        CData/*0:0*/ soc_top__DOT__u_spi__DOT__mosi;
         CData/*0:0*/ soc_top__DOT__u_spi__DOT__miso;
         CData/*0:0*/ soc_top__DOT__u_spi__DOT__cs_n;
         CData/*7:0*/ soc_top__DOT__u_spi__DOT__clk_div;
@@ -440,8 +442,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ soc_top__DOT__u_vga__DOT__v_sync_raw;
         CData/*0:0*/ soc_top__DOT__u_vga__DOT__video_active;
         CData/*0:0*/ soc_top__DOT__u_vga__DOT__in_window;
-        CData/*6:0*/ soc_top__DOT__u_vga__DOT__fb_x;
-        CData/*6:0*/ soc_top__DOT__u_vga__DOT__fb_y;
+        CData/*7:0*/ soc_top__DOT__u_vga__DOT__fb_y;
         CData/*7:0*/ soc_top__DOT__u_vga__DOT__vga_pixel_data;
         CData/*0:0*/ soc_top__DOT__u_vga__DOT__h_sync_d;
         CData/*0:0*/ soc_top__DOT__u_vga__DOT__v_sync_d;
@@ -479,7 +480,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*7:0*/ __VdlyVal__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v12;
         CData/*7:0*/ __VdlyVal__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v13;
         CData/*7:0*/ __VdlyVal__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v14;
-        CData/*0:0*/ __VstlDidInit;
         CData/*0:0*/ __VstlFirstIteration;
     };
     struct {
@@ -509,9 +509,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ __Vtrigprevexpr___TOP__soc_top__DOT__u_vga__DOT__u_timing__DOT__rst__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__soc_top__DOT__u_vga__DOT__u_ram__DOT__clk_cpu__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__soc_top__DOT__u_vga__DOT__u_ram__DOT__clk_vga__0;
-        CData/*0:0*/ __VactDidInit;
-        SData/*12:0*/ soc_top__DOT__ram_address;
-        SData/*13:0*/ soc_top__DOT__vga_address;
+        VL_OUT16(dbg_vga_addr,15,0);
+        SData/*15:0*/ soc_top__DOT__dbg_vga_addr;
+        SData/*15:0*/ soc_top__DOT__vga_address;
         SData/*11:0*/ soc_top__DOT__u_core__DOT__id_funct12;
         SData/*11:0*/ soc_top__DOT__u_core__DOT__ex_funct12;
         SData/*11:0*/ soc_top__DOT__u_core__DOT__u_id__DOT__id_funct12;
@@ -520,38 +520,37 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         SData/*11:0*/ soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_funct12;
         SData/*11:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__ex_funct12;
         SData/*11:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_csr__DOT__csr_addr;
-        SData/*12:0*/ soc_top__DOT__u_bus__DOT__ram_address;
-        SData/*13:0*/ soc_top__DOT__u_bus__DOT__vga_address;
-        SData/*12:0*/ soc_top__DOT__u_ram__DOT__dmem_address;
-        SData/*12:0*/ soc_top__DOT__u_ram__DOT__pc_idx;
-        SData/*13:0*/ soc_top__DOT__u_vga__DOT__cpu_address;
+        SData/*15:0*/ soc_top__DOT__u_bus__DOT__vga_address;
+        SData/*15:0*/ soc_top__DOT__u_vga__DOT__cpu_address;
         SData/*9:0*/ soc_top__DOT__u_vga__DOT__pixel_x;
         SData/*9:0*/ soc_top__DOT__u_vga__DOT__pixel_y;
-        SData/*13:0*/ soc_top__DOT__u_vga__DOT__vga_ram_addr;
+        SData/*8:0*/ soc_top__DOT__u_vga__DOT__fb_x;
+        SData/*15:0*/ soc_top__DOT__u_vga__DOT__vga_ram_addr;
         SData/*9:0*/ soc_top__DOT__u_vga__DOT__u_timing__DOT__pixel_x;
         SData/*9:0*/ soc_top__DOT__u_vga__DOT__u_timing__DOT__pixel_y;
         SData/*9:0*/ soc_top__DOT__u_vga__DOT__u_timing__DOT__h_count;
         SData/*9:0*/ soc_top__DOT__u_vga__DOT__u_timing__DOT__v_count;
-        SData/*13:0*/ soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address;
-        SData/*13:0*/ soc_top__DOT__u_vga__DOT__u_ram__DOT__vga_address;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v0;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v1;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v2;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v3;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v4;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v5;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v6;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v7;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v8;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v9;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v10;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v11;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v12;
+        SData/*15:0*/ soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address;
+        SData/*15:0*/ soc_top__DOT__u_vga__DOT__u_ram__DOT__vga_address;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v0;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v1;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v2;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v3;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v4;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v5;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v6;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v7;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v8;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v9;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v10;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v11;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v12;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v13;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v14;
     };
     struct {
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v13;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v14;
         IData/*31:0*/ soc_top__DOT__imem_instruction;
+        IData/*22:0*/ soc_top__DOT__ram_address;
         IData/*31:0*/ soc_top__DOT__u_core__DOT__imem_instruction;
         IData/*31:0*/ soc_top__DOT__u_core__DOT__if_instruction;
         IData/*31:0*/ soc_top__DOT__u_core__DOT__id_instruction;
@@ -563,21 +562,14 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         VlWide<4>/*127:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_multdiv__DOT__mul_signed;
         VlWide<4>/*127:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_multdiv__DOT__mul_unsigned;
         VlWide<4>/*127:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_multdiv__DOT__mul_su;
+        IData/*22:0*/ soc_top__DOT__u_bus__DOT__ram_address;
         IData/*31:0*/ soc_top__DOT__u_ram__DOT__imem_instruction;
-        IData/*31:0*/ soc_top__DOT__u_ram__DOT__i;
-        IData/*31:0*/ soc_top__DOT__u_ram__DOT__be_score;
-        IData/*31:0*/ soc_top__DOT__u_ram__DOT__le_score;
-        IData/*31:0*/ soc_top__DOT__u_ram__DOT__scan_idx;
-        IData/*31:0*/ soc_top__DOT__u_ram__DOT__word_be;
-        IData/*31:0*/ soc_top__DOT__u_ram__DOT__word_le;
+        IData/*22:0*/ soc_top__DOT__u_ram__DOT__dmem_address;
+        IData/*22:0*/ soc_top__DOT__u_ram__DOT__pc_idx;
         IData/*31:0*/ soc_top__DOT__u_vga__DOT__u_ram__DOT__i;
-        VlWide<3>/*64:0*/ __Vtrigprevexpr___TOP__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst__carry__0;
-        VlWide<3>/*64:0*/ __Vtrigprevexpr___TOP__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__rca_inst__carry__0;
-        VlWide<3>/*64:0*/ __Vtrigprevexpr___TOP__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst__carry__0;
-        VlWide<3>/*64:0*/ __Vtrigprevexpr___TOP__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst__carry__1;
-        VlWide<3>/*64:0*/ __Vtrigprevexpr___TOP__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__rca_inst__carry__1;
-        VlWide<3>/*64:0*/ __Vtrigprevexpr___TOP__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst__carry__1;
         IData/*31:0*/ __VactIterCount;
+        VL_OUT64(dbg_vga_data,63,0);
+        QData/*63:0*/ soc_top__DOT__dbg_vga_data;
         QData/*63:0*/ soc_top__DOT__imem_address;
         QData/*63:0*/ soc_top__DOT__dmem_address;
         QData/*63:0*/ soc_top__DOT__dmem_write_data;
@@ -613,8 +605,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__ex_alu_result;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__ex_forwarded_rs2;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__ex_branch_target;
-    };
-    struct {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__trap_target_pc;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__trap_pc;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__mem_alu_result;
@@ -623,6 +613,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__mem_pc4;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__mem_read_data;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__wb_read_data;
+    };
+    struct {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__wb_alu_result;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__wb_pc4;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__wb_write_data;
@@ -679,8 +671,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__alu_op_a;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__fwd_rs2;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__alu_op_b;
-    };
-    struct {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__alu_res;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__multdiv_result;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__alu_result_raw;
@@ -689,6 +679,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__csr_rdata;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__csr_write_data;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__mepc_out;
+    };
+    struct {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__mtvec_out;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__bta_result;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__a;
@@ -745,8 +737,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_slt__DOT__result;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_sltu__DOT__rs1;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_sltu__DOT__rs2;
-    };
-    struct {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_sltu__DOT__result;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_multdiv__DOT__a;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_multdiv__DOT__b;
@@ -755,6 +745,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_multdiv__DOT__b_signed;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_csr__DOT__csr_wdata;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_csr__DOT__csr_rdata;
+    };
+    struct {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_csr__DOT__trap_pc;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_csr__DOT__mepc;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_csr__DOT__mtvec;
@@ -811,16 +803,16 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*63:0*/ soc_top__DOT__u_clint__DOT__mtimecmp;
         QData/*63:0*/ soc_top__DOT__u_spi__DOT__write_data;
         QData/*63:0*/ soc_top__DOT__u_spi__DOT__read_data;
-    };
-    struct {
         QData/*63:0*/ soc_top__DOT__u_vga__DOT__cpu_write_data;
         QData/*63:0*/ soc_top__DOT__u_vga__DOT__cpu_read_data;
         QData/*63:0*/ soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_write_data;
         QData/*63:0*/ soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_read_data;
         VlUnpacked<QData/*63:0*/, 32> soc_top__DOT__u_core__DOT__u_id__DOT__u_regfile__DOT__registers;
-        VlUnpacked<CData/*7:0*/, 8192> soc_top__DOT__u_ram__DOT__memory;
-        VlUnpacked<CData/*7:0*/, 16384> soc_top__DOT__u_vga__DOT__u_ram__DOT__memory;
-        VlUnpacked<QData/*63:0*/, 2> __VstlTriggered;
+        VlUnpacked<CData/*7:0*/, 8388608> soc_top__DOT__u_ram__DOT__memory;
+        VlUnpacked<CData/*7:0*/, 65536> soc_top__DOT__u_vga__DOT__u_ram__DOT__memory;
+        VlUnpacked<QData/*63:0*/, 1> __VstlTriggered;
+    };
+    struct {
         VlUnpacked<QData/*63:0*/, 1> __VicoTriggered;
         VlUnpacked<QData/*63:0*/, 1> __VactTriggered;
         VlUnpacked<QData/*63:0*/, 1> __VnbaTriggered;

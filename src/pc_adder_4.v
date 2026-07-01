@@ -6,7 +6,7 @@ module pc_adder_4 (
     wire        cout;
     wire        carry_into_msb;
 
-    rca_64b adder_inst (
+    cla_64b adder_inst (
         .a(pc_current),
         .b(64'h0000_0000_0000_0004),
         .cin(1'b0),

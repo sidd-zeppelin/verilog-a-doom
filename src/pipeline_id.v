@@ -60,7 +60,8 @@ module pipeline_id (
         .write_data (wb_write_data),
         .reg_write  (wb_RegWrite),
         .read_data1 (rf_read_data1),
-        .read_data2 (rf_read_data2)
+        .read_data2 (rf_read_data2),
+        .zero_flag  ()
     );
 
     // WB->ID bypass for same-cycle write/read hazards.

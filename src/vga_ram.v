@@ -1,7 +1,7 @@
 module vga_ram (
     // Port A (CPU Interface)
     input wire clk_cpu,
-    input wire [13:0] cpu_address, // 0-based offset, 16384 bytes
+    input wire [15:0] cpu_address, // 0-based offset, 65536 bytes
     input wire [63:0] cpu_write_data,
     input wire cpu_write_req,
     input wire [2:0] cpu_funct3,
@@ -9,17 +9,17 @@ module vga_ram (
 
     // Port B (VGA Interface)
     input wire clk_vga,
-    input wire [13:0] vga_address,
+    input wire [15:0] vga_address,
     output reg [7:0] vga_read_data
 );
 
-    // 16 KB Memory
-    reg [7:0] memory [0:16383];
+    // 64 KB Memory for 320x200 Framebuffer
+    reg [7:0] memory [0:65535];
 
     // Initialize to black
     integer i;
     initial begin
-        for (i = 0; i < 16384; i = i + 1) begin
+        for (i = 0; i < 65536; i = i + 1) begin
             memory[i] = 8'b00000000;
         end
     end

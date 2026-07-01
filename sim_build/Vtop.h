@@ -13,7 +13,7 @@
 
 class Vtop__Syms;
 class Vtop___024root;
-class Vtop_rca_64b;
+class Vtop_cla_64b;
 
 
 // This class is the main interface to the Verilated model
@@ -44,13 +44,16 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
     VL_OUT8(&spi_mosi,0,0);
     VL_IN8(&spi_miso,0,0);
     VL_OUT8(&spi_cs_n,0,0);
+    VL_OUT8(&dbg_vga_we,0,0);
+    VL_OUT16(&dbg_vga_addr,15,0);
+    VL_OUT64(&dbg_vga_data,63,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.
     // Otherwise the application code can consider these internals.
-    Vtop_rca_64b* const __PVT__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst;
-    Vtop_rca_64b* const __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__rca_inst;
-    Vtop_rca_64b* const __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst;
+    Vtop_cla_64b* const __PVT__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst;
+    Vtop_cla_64b* const __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__cla_inst;
+    Vtop_cla_64b* const __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst;
 
     // Root instance pointer to allow access to model internals,
     // including inlined /* verilator public_flat_* */ items.

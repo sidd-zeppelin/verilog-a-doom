@@ -22,8 +22,11 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , spi_mosi{vlSymsp->TOP.spi_mosi}
     , spi_miso{vlSymsp->TOP.spi_miso}
     , spi_cs_n{vlSymsp->TOP.spi_cs_n}
+    , dbg_vga_we{vlSymsp->TOP.dbg_vga_we}
+    , dbg_vga_addr{vlSymsp->TOP.dbg_vga_addr}
+    , dbg_vga_data{vlSymsp->TOP.dbg_vga_data}
     , __PVT__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst{vlSymsp->TOP.__PVT__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst}
-    , __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__rca_inst{vlSymsp->TOP.__PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__rca_inst}
+    , __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__cla_inst{vlSymsp->TOP.__PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__cla_inst}
     , __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst{vlSymsp->TOP.__PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst}
     , rootp{&(vlSymsp->TOP)}
 {

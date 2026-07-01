@@ -8,4 +8,4 @@ Vtop__pch.h.slow.gch: Vtop__pch.h \
  /home/sidd-zeppelin/miniconda3/share/verilator/include/verilated.h \
  /home/sidd-zeppelin/miniconda3/share/verilator/include/verilated_sym_props.h \
  /home/sidd-zeppelin/miniconda3/share/verilator/include/vltstd/svdpi.h \
- Vtop__Syms.h Vtop.h Vtop___024root.h Vtop_rca_64b.h
+ Vtop__Syms.h Vtop.h Vtop___024root.h Vtop_cla_64b.h

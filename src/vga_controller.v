@@ -2,7 +2,7 @@ module vga_controller (
     // CPU Interface
     input wire clk_cpu,
     input wire rst,
-    input wire [13:0] cpu_address,
+    input wire [15:0] cpu_address,
     input wire [63:0] cpu_write_data,
     input wire cpu_write_req,
     input wire [2:0] cpu_funct3,
@@ -33,19 +33,19 @@ module vga_controller (
         .video_active(video_active)
     );
 
-    // Framebuffer is 128x128 pixels, 8-bit color
-    // We scale it 2x to 256x256 and center it on the 640x480 screen.
-    // X center: (640 - 256) / 2 = 192. Range: 192 to 447
-    // Y center: (480 - 256) / 2 = 112. Range: 112 to 367
+    // Framebuffer is 320x200 pixels, 8-bit color
+    // We scale it 2x to 640x400 and center it vertically on the 640x480 screen.
+    // X center: 0. Range: 0 to 639
+    // Y center: (480 - 400) / 2 = 40. Range: 40 to 439
 
-    wire in_window = (pixel_x >= 192 && pixel_x < 448 && 
-                      pixel_y >= 112 && pixel_y < 368);
+    wire in_window = (pixel_x >= 0 && pixel_x < 640 && 
+                      pixel_y >= 40 && pixel_y < 440);
 
-    wire [6:0] fb_x = (pixel_x - 192) >> 1;
-    wire [6:0] fb_y = (pixel_y - 112) >> 1;
+    wire [8:0] fb_x = pixel_x >> 1;
+    wire [7:0] fb_y = (pixel_y - 40) >> 1;
     
-    // Address is fb_y * 128 + fb_x
-    wire [13:0] vga_ram_addr = in_window ? {fb_y, fb_x} : 14'b0;
+    // Address is fb_y * 320 + fb_x = (fb_y << 8) + (fb_y << 6) + fb_x
+    wire [15:0] vga_ram_addr = in_window ? ((fb_y << 8) + (fb_y << 6) + fb_x) : 16'b0;
 
     wire [7:0] vga_pixel_data;
 

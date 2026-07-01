@@ -6,7 +6,7 @@
 #define VERILATED_VSOC_TOP___024ROOT_H_  // guard
 
 #include "verilated.h"
-class Vsoc_top_rca_64b;
+class Vsoc_top_cla_64b;
 
 
 class Vsoc_top__Syms;
@@ -14,9 +14,9 @@ class Vsoc_top__Syms;
 class alignas(VL_CACHE_LINE_BYTES) Vsoc_top___024root final {
   public:
     // CELLS
-    Vsoc_top_rca_64b* __PVT__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst;
-    Vsoc_top_rca_64b* __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__rca_inst;
-    Vsoc_top_rca_64b* __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst;
+    Vsoc_top_cla_64b* __PVT__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst;
+    Vsoc_top_cla_64b* __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__cla_inst;
+    Vsoc_top_cla_64b* __PVT__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst;
 
     // DESIGN SPECIFIC STATE
     // Anonymous structures to workaround compiler member-count bugs
@@ -95,7 +95,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vsoc_top___024root final {
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__is_m_ext;
         CData/*0:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__csr_write_en;
         CData/*1:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_multdiv__DOT__state;
-        CData/*0:0*/ soc_top__DOT__u_ram__DOT__use_little_endian;
         CData/*7:0*/ soc_top__DOT__u_spi__DOT__clk_div;
         CData/*0:0*/ soc_top__DOT__u_spi__DOT__busy;
         CData/*7:0*/ soc_top__DOT__u_spi__DOT__shift_reg;
@@ -151,9 +150,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vsoc_top___024root final {
         CData/*7:0*/ __VdlyVal__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v7;
         CData/*0:0*/ __VdlySet__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v7;
         CData/*7:0*/ __VdlyVal__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v8;
+        CData/*7:0*/ __VdlyVal__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v9;
     };
     struct {
-        CData/*7:0*/ __VdlyVal__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v9;
         CData/*7:0*/ __VdlyVal__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v10;
         CData/*7:0*/ __VdlyVal__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v11;
         CData/*7:0*/ __VdlyVal__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v12;
@@ -163,44 +162,44 @@ class alignas(VL_CACHE_LINE_BYTES) Vsoc_top___024root final {
         CData/*0:0*/ __Vtrigprevexpr___TOP__clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__rst__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__soc_top__DOT__clk_25mhz__0;
-        VL_OUT16(dbg_vga_addr,13,0);
+        VL_OUT16(dbg_vga_addr,15,0);
         SData/*11:0*/ soc_top__DOT__u_core__DOT__ex_funct12;
         SData/*9:0*/ soc_top__DOT__u_vga__DOT__u_timing__DOT__h_count;
         SData/*9:0*/ soc_top__DOT__u_vga__DOT__u_timing__DOT__v_count;
         SData/*9:0*/ __Vdly__soc_top__DOT__u_vga__DOT__u_timing__DOT__h_count;
         SData/*9:0*/ __Vdly__soc_top__DOT__u_vga__DOT__u_timing__DOT__v_count;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v0;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v1;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v2;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v3;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v4;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v5;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v6;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v7;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v8;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v9;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v10;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v11;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v12;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v13;
-        SData/*12:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v14;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v0;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v1;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v2;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v3;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v4;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v5;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v6;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v7;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v8;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v9;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v10;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v11;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v12;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v13;
-        SData/*13:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v14;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v0;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v1;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v2;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v3;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v4;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v5;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v6;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v7;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v8;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v9;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v10;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v11;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v12;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v13;
+        SData/*15:0*/ __VdlyDim0__soc_top__DOT__u_vga__DOT__u_ram__DOT__memory__v14;
         IData/*31:0*/ soc_top__DOT__u_core__DOT__id_instruction;
         VlWide<4>/*127:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_multdiv__DOT__mul_signed;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v0;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v1;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v2;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v3;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v4;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v5;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v6;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v7;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v8;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v9;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v10;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v11;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v12;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v13;
+        IData/*23:0*/ __VdlyDim0__soc_top__DOT__u_ram__DOT__memory__v14;
         IData/*31:0*/ __VactIterCount;
         VL_OUT64(dbg_vga_data,63,0);
         QData/*63:0*/ soc_top__DOT__ram_read_data;
@@ -217,9 +216,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vsoc_top___024root final {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__ex_immediate;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__ex_alu_result;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__ex_branch_target;
+        QData/*63:0*/ soc_top__DOT__u_core__DOT__trap_target_pc;
     };
     struct {
-        QData/*63:0*/ soc_top__DOT__u_core__DOT__trap_target_pc;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__mem_alu_result;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__mem_rs2_data;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__mem_pc4;
@@ -241,7 +240,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vsoc_top___024root final {
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__sll_res;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__srl_res;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__sra_res;
-        QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__use_b;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_csr__DOT__mstatus;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_csr__DOT__mcause;
         QData/*63:0*/ soc_top__DOT__u_core__DOT__u_ex__DOT__u_csr__DOT__mie;
@@ -250,8 +248,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vsoc_top___024root final {
         QData/*63:0*/ soc_top__DOT__u_clint__DOT__mtimecmp;
         QData/*63:0*/ __Vdly__soc_top__DOT__u_clint__DOT__mtime;
         VlUnpacked<QData/*63:0*/, 32> soc_top__DOT__u_core__DOT__u_id__DOT__u_regfile__DOT__registers;
-        VlUnpacked<CData/*7:0*/, 8192> soc_top__DOT__u_ram__DOT__memory;
-        VlUnpacked<CData/*7:0*/, 16384> soc_top__DOT__u_vga__DOT__u_ram__DOT__memory;
+        VlUnpacked<CData/*7:0*/, 16777216> soc_top__DOT__u_ram__DOT__memory;
+        VlUnpacked<CData/*7:0*/, 65536> soc_top__DOT__u_vga__DOT__u_ram__DOT__memory;
         VlUnpacked<QData/*63:0*/, 1> __VstlTriggered;
         VlUnpacked<QData/*63:0*/, 1> __VactTriggered;
         VlUnpacked<QData/*63:0*/, 1> __VnbaTriggered;

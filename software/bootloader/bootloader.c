@@ -1,7 +1,7 @@
 #include <stdint.h>
 
-#define SPI_DATA (*(volatile uint64_t*)0xD000)
-#define SPI_CTRL (*(volatile uint64_t*)0xD008)
+#define SPI_DATA (*(volatile uint64_t*)0x10000000)
+#define SPI_CTRL (*(volatile uint64_t*)0x10000008)
 
 #define SD_CS_HIGH() do { SPI_CTRL = 1; } while(0)
 #define SD_CS_LOW()  do { SPI_CTRL = 0; } while(0)

@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782943017" />
+    <testcase name="alu_exhaustive_test" classname="test_alu" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_alu.py" lineno="15" time="0.0007901191711425781" sim_time_ns="17.0" ratio_time="21515.74170187085" />
+  </testsuite>
+</testsuites>

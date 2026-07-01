@@ -150,11 +150,6 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.soc_top__DOT__u_core__DOT__id_instruction 
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_if_id__DOT__id_instruction;
     vlSelfRef.soc_top__DOT__u_core__DOT__if_pc = vlSelfRef.soc_top__DOT__u_core__DOT__u_pc__DOT__pc_current;
-    vlSelfRef.soc_top__DOT__u_core__DOT__ex_funct3 
-        = vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_funct3;
-    vlSelfRef.soc_top__DOT__u_core__DOT__ex_ALUOp = vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_ALUOp;
-    vlSelfRef.soc_top__DOT__u_core__DOT__ex_funct7 
-        = vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_funct7;
     vlSelfRef.soc_top__DOT__u_core__DOT__ex_ALUSrcA 
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_ALUSrcA;
     vlSelfRef.soc_top__DOT__u_core__DOT__ex_rs1_data 
@@ -165,6 +160,11 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.soc_top__DOT__u_core__DOT__ex_rs2_data 
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_rs2_data;
     vlSelfRef.soc_top__DOT__u_core__DOT__ex_rs2 = vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_rs2;
+    vlSelfRef.soc_top__DOT__u_core__DOT__ex_funct3 
+        = vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_funct3;
+    vlSelfRef.soc_top__DOT__u_core__DOT__ex_ALUOp = vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_ALUOp;
+    vlSelfRef.soc_top__DOT__u_core__DOT__ex_funct7 
+        = vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_funct7;
     vlSelfRef.soc_top__DOT__u_core__DOT__ex_pc = vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_pc;
     vlSelfRef.soc_top__DOT__u_core__DOT__ex_immediate 
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__ex_immediate;
@@ -296,14 +296,6 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         = vlSelfRef.soc_top__DOT__u_core__DOT__if_pc;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_if__DOT__if_pc 
         = vlSelfRef.soc_top__DOT__u_core__DOT__if_pc;
-    vlSelfRef.soc_top__DOT__u_core__DOT__u_ex_mem__DOT__ex_funct3 
-        = vlSelfRef.soc_top__DOT__u_core__DOT__ex_funct3;
-    vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_funct3 
-        = vlSelfRef.soc_top__DOT__u_core__DOT__ex_funct3;
-    vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_ALUOp 
-        = vlSelfRef.soc_top__DOT__u_core__DOT__ex_ALUOp;
-    vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_funct7 
-        = vlSelfRef.soc_top__DOT__u_core__DOT__ex_funct7;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_ALUSrcA 
         = vlSelfRef.soc_top__DOT__u_core__DOT__ex_ALUSrcA;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_rs1_data 
@@ -320,6 +312,14 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         = vlSelfRef.soc_top__DOT__u_core__DOT__ex_rs2;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_forwarding__DOT__ex_rs2 
         = vlSelfRef.soc_top__DOT__u_core__DOT__ex_rs2;
+    vlSelfRef.soc_top__DOT__u_core__DOT__u_ex_mem__DOT__ex_funct3 
+        = vlSelfRef.soc_top__DOT__u_core__DOT__ex_funct3;
+    vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_funct3 
+        = vlSelfRef.soc_top__DOT__u_core__DOT__ex_funct3;
+    vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_ALUOp 
+        = vlSelfRef.soc_top__DOT__u_core__DOT__ex_ALUOp;
+    vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_funct7 
+        = vlSelfRef.soc_top__DOT__u_core__DOT__ex_funct7;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_pc 
         = vlSelfRef.soc_top__DOT__u_core__DOT__ex_pc;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_immediate 
@@ -366,19 +366,17 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         = vlSelfRef.soc_top__DOT__u_core__DOT__trap_pc;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_id__DOT__id_pc_out 
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_id__DOT__id_pc;
-    vlSelfRef.soc_top__DOT__u_vga__DOT__fb_x = (0x0000007fU 
-                                                & (((IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__pixel_x) 
-                                                    - (IData)(0x000000c0U)) 
+    vlSelfRef.soc_top__DOT__u_vga__DOT__fb_x = (0x000001ffU 
+                                                & ((IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__pixel_x) 
                                                    >> 1U));
-    vlSelfRef.soc_top__DOT__u_vga__DOT__fb_y = (0x0000007fU 
+    vlSelfRef.soc_top__DOT__u_vga__DOT__fb_y = (0x000000ffU 
                                                 & (((IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__pixel_y) 
-                                                    - (IData)(0x00000070U)) 
+                                                    - (IData)(0x00000028U)) 
                                                    >> 1U));
     vlSelfRef.soc_top__DOT__u_vga__DOT__in_window = 
-        ((0x00c0U <= (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__pixel_x)) 
-         & ((0x01c0U > (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__pixel_x)) 
-            & ((0x0070U <= (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__pixel_y)) 
-               & (0x0170U > (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__pixel_y)))));
+        ((0x0280U > (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__pixel_x)) 
+         & ((0x0028U <= (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__pixel_y)) 
+            & (0x01b8U > (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__pixel_y))));
     if (vlSelfRef.soc_top__DOT__u_vga__DOT__video_active_d) {
         vlSelfRef.soc_top__DOT__u_vga__DOT__vga_r = vlSelfRef.soc_top__DOT__u_vga__DOT__r_out;
         vlSelfRef.soc_top__DOT__u_vga__DOT__vga_g = vlSelfRef.soc_top__DOT__u_vga__DOT__g_out;
@@ -479,6 +477,9 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.soc_top__DOT__imem_address = vlSelfRef.soc_top__DOT__u_core__DOT__imem_address;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__pc_current 
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_if__DOT__if_pc;
+    vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__is_jalr 
+        = ((IData)(vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_ALUSrc) 
+           & (IData)(vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_Jump));
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__u_multdiv__DOT__funct3 
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_funct3;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__is_csr_rs_rc 
@@ -496,9 +497,6 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu_ctrl__DOT__funct7_bit5 
         = (1U & ((IData)(vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_funct7) 
                  >> 5U));
-    vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__is_jalr 
-        = ((IData)(vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_ALUSrc) 
-           & (IData)(vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_Jump));
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__pc_current 
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__ex_pc;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__offset 
@@ -552,8 +550,9 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_id__DOT__id_pc_out;
     vlSelfRef.soc_top__DOT__u_vga__DOT__vga_ram_addr 
         = ((IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__in_window)
-            ? (((IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__fb_y) 
-                << 7U) | (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__fb_x))
+            ? (0x0000ffffU & (VL_SHIFTL_III(16,16,32, (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__fb_y), 8U) 
+                              + (VL_SHIFTL_III(16,16,32, (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__fb_y), 6U) 
+                                 + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__fb_x))))
             : 0U);
     vlSelfRef.soc_top__DOT__vga_r = vlSelfRef.soc_top__DOT__u_vga__DOT__vga_r;
     vlSelfRef.soc_top__DOT__vga_g = vlSelfRef.soc_top__DOT__u_vga__DOT__vga_g;
@@ -858,7 +857,7 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         __VdfgRegularize_h6e95ff9d_0_2 = 0ULL;
         __VdfgRegularize_h6e95ff9d_0_1 = 0ULL;
     }
-    vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx = (0x00001fffU 
+    vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx = (0x007fffffU 
                                                   & (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__imem_address));
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__u_csr__DOT__csr_write 
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__csr_write_en;
@@ -945,27 +944,27 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.soc_top__DOT__u_ram__DOT__imem_instruction 
         = ((IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__use_little_endian)
             ? (((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
-                 [(0x00001fffU & ((IData)(3U) + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx)))] 
+                 [(0x007fffffU & ((IData)(3U) + vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx))] 
                  << 0x00000018U) | (vlSelfRef.soc_top__DOT__u_ram__DOT__memory
-                                    [(0x00001fffU & 
+                                    [(0x007fffffU & 
                                       ((IData)(2U) 
-                                       + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx)))] 
+                                       + vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx))] 
                                     << 0x00000010U)) 
                | ((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
-                   [(0x00001fffU & ((IData)(1U) + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx)))] 
+                   [(0x007fffffU & ((IData)(1U) + vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx))] 
                    << 8U) | vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                   [vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx]))
             : (((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                  [vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx] 
                  << 0x00000018U) | (vlSelfRef.soc_top__DOT__u_ram__DOT__memory
-                                    [(0x00001fffU & 
+                                    [(0x007fffffU & 
                                       ((IData)(1U) 
-                                       + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx)))] 
+                                       + vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx))] 
                                     << 0x00000010U)) 
                | ((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
-                   [(0x00001fffU & ((IData)(2U) + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx)))] 
+                   [(0x007fffffU & ((IData)(2U) + vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx))] 
                    << 8U) | vlSelfRef.soc_top__DOT__u_ram__DOT__memory
-                  [(0x00001fffU & ((IData)(3U) + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx)))])));
+                  [(0x007fffffU & ((IData)(3U) + vlSelfRef.soc_top__DOT__u_ram__DOT__pc_idx))])));
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__multdiv_busy 
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__u_multdiv__DOT__busy;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__opcode 
@@ -1152,7 +1151,7 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.soc_top__DOT__u_bus__DOT__io_address 
         = (0x000000ffU & (IData)(vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address));
     vlSelfRef.soc_top__DOT__u_bus__DOT__ram_address 
-        = (0x00001fffU & (IData)(vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address));
+        = (0x007fffffU & (IData)(vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address));
     vlSelfRef.soc_top__DOT__u_bus__DOT__clint_address 
         = (0x0000000fU & (IData)(vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address));
     vlSelfRef.soc_top__DOT__u_bus__DOT__clint_read_req = 0U;
@@ -1160,42 +1159,42 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.soc_top__DOT__u_bus__DOT__spi_address 
         = (0x0000000fU & (IData)(vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address));
     vlSelfRef.soc_top__DOT__u_bus__DOT__spi_read_req = 0U;
-    if ((0x0000000000002000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address)) {
-        if ((1U & (~ ((0x0000000000002000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-                      & (0x0000000000006000ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))))) {
-            if ((1U & (~ ((0x000000000000d000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-                          & (0x000000000000d100ULL 
+    if ((0x0000000000800000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address)) {
+        if ((1U & (~ ((0x0000000001000000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
+                      & (0x0000000001100000ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))))) {
+            if ((1U & (~ ((0x0000000010000000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
+                          & (0x0000000010000100ULL 
                              > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))))) {
-                if ((1U & (~ ((0x000000000000e000ULL 
+                if ((1U & (~ ((0x0000000010010000ULL 
                                <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-                              & (0x000000000000e010ULL 
+                              & (0x0000000010010100ULL 
                                  > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))))) {
-                    if (((0x000000000000f000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-                         & (0x000000000000f100ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
+                    if (((0x0000000010020000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
+                         & (0x0000000010020100ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
                         vlSelfRef.soc_top__DOT__u_bus__DOT__io_write_req 
                             = vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_write_req;
                         vlSelfRef.soc_top__DOT__u_bus__DOT__io_read_req 
                             = vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_read_req;
                     }
                 }
-                if (((0x000000000000e000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-                     & (0x000000000000e010ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
+                if (((0x0000000010010000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
+                     & (0x0000000010010100ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
                     vlSelfRef.soc_top__DOT__u_bus__DOT__clint_write_req 
                         = vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_write_req;
                     vlSelfRef.soc_top__DOT__u_bus__DOT__clint_read_req 
                         = vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_read_req;
                 }
             }
-            if (((0x000000000000d000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-                 & (0x000000000000d100ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
+            if (((0x0000000010000000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
+                 & (0x0000000010000100ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
                 vlSelfRef.soc_top__DOT__u_bus__DOT__spi_write_req 
                     = vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_write_req;
                 vlSelfRef.soc_top__DOT__u_bus__DOT__spi_read_req 
                     = vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_read_req;
             }
         }
-        if (((0x0000000000002000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-             & (0x0000000000006000ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
+        if (((0x0000000001000000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
+             & (0x0000000001100000ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
             vlSelfRef.soc_top__DOT__u_bus__DOT__vga_read_req 
                 = vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_read_req;
             vlSelfRef.soc_top__DOT__u_bus__DOT__vga_write_req 
@@ -1203,8 +1202,7 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         }
     }
     vlSelfRef.soc_top__DOT__u_bus__DOT__vga_address 
-        = (0x00003fffU & ((IData)(vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-                          - (IData)(0x2000U)));
+        = (0x0000ffffU & (IData)(vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address));
     vlSelfRef.soc_top__DOT__io_write_data = vlSelfRef.soc_top__DOT__u_bus__DOT__io_write_data;
     vlSelfRef.soc_top__DOT__ram_write_data = vlSelfRef.soc_top__DOT__u_bus__DOT__ram_write_data;
     vlSelfRef.soc_top__DOT__spi_write_data = vlSelfRef.soc_top__DOT__u_bus__DOT__spi_write_data;
@@ -1269,7 +1267,7 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.soc_top__DOT__vga_read_req = vlSelfRef.soc_top__DOT__u_bus__DOT__vga_read_req;
     vlSelfRef.soc_top__DOT__clint_write_req = vlSelfRef.soc_top__DOT__u_bus__DOT__clint_write_req;
     vlSelfRef.soc_top__DOT__spi_write_req = vlSelfRef.soc_top__DOT__u_bus__DOT__spi_write_req;
-    if ((0x0000000000002000ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address)) {
+    if ((0x0000000000800000ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address)) {
         vlSelfRef.soc_top__DOT__u_bus__DOT__ram_write_req 
             = vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_write_req;
         vlSelfRef.soc_top__DOT__ram_write_req = vlSelfRef.soc_top__DOT__u_bus__DOT__ram_write_req;
@@ -1298,6 +1296,7 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         = vlSelfRef.soc_top__DOT__spi_write_data;
     vlSelfRef.soc_top__DOT__u_clint__DOT__clint_write_data 
         = vlSelfRef.soc_top__DOT__clint_write_data;
+    vlSelfRef.soc_top__DOT__dbg_vga_data = vlSelfRef.soc_top__DOT__vga_write_data;
     vlSelfRef.soc_top__DOT__u_vga__DOT__cpu_write_data 
         = vlSelfRef.soc_top__DOT__vga_write_data;
     vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_funct3 
@@ -1338,6 +1337,7 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.soc_top__DOT__u_spi__DOT__write_req = vlSelfRef.soc_top__DOT__spi_write_req;
     vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_write_req 
         = vlSelfRef.soc_top__DOT__ram_write_req;
+    vlSelfRef.soc_top__DOT__dbg_vga_we = vlSelfRef.soc_top__DOT__vga_write_req;
     vlSelfRef.soc_top__DOT__u_vga__DOT__cpu_write_req 
         = vlSelfRef.soc_top__DOT__vga_write_req;
     vlSelfRef.soc_top__DOT__io_read_data = ((0U == (IData)(vlSelfRef.soc_top__DOT__io_address))
@@ -1353,8 +1353,10 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         = vlSelfRef.soc_top__DOT__ram_read_req;
     vlSelfRef.soc_top__DOT__u_spi__DOT__address = vlSelfRef.soc_top__DOT__spi_address;
     vlSelfRef.soc_top__DOT__u_spi__DOT__read_req = vlSelfRef.soc_top__DOT__spi_read_req;
+    vlSelfRef.soc_top__DOT__dbg_vga_addr = vlSelfRef.soc_top__DOT__vga_address;
     vlSelfRef.soc_top__DOT__u_vga__DOT__cpu_address 
         = vlSelfRef.soc_top__DOT__vga_address;
+    vlSelfRef.dbg_vga_data = vlSelfRef.soc_top__DOT__dbg_vga_data;
     vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_write_data 
         = vlSelfRef.soc_top__DOT__u_vga__DOT__cpu_write_data;
     vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_funct3 
@@ -1424,6 +1426,7 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         = (0x0000003fU & (IData)(vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__b));
     vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__b 
         = vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__b;
+    vlSelfRef.dbg_vga_we = vlSelfRef.soc_top__DOT__dbg_vga_we;
     vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_write_req 
         = vlSelfRef.soc_top__DOT__u_vga__DOT__cpu_write_req;
     vlSelfRef.soc_top__DOT__u_bus__DOT__io_read_data 
@@ -1443,30 +1446,30 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
                         ? 0ULL : (((QData)((IData)(
                                                    vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                    [
-                                                   (0x00001fffU 
+                                                   (0x007fffffU 
                                                     & ((IData)(3U) 
-                                                       + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))])) 
+                                                       + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))])) 
                                    << 0x00000018U) 
                                   | (QData)((IData)(
                                                     ((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                       [
-                                                      (0x00001fffU 
+                                                      (0x007fffffU 
                                                        & ((IData)(2U) 
-                                                          + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                          + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                       << 0x00000010U) 
                                                      | ((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                          [
-                                                         (0x00001fffU 
+                                                         (0x007fffffU 
                                                           & ((IData)(1U) 
-                                                             + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                             + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                          << 8U) 
                                                         | vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                         [vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address]))))))
                     : ((1U & (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_funct3))
                         ? (((QData)((IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__memory
-                                            [(0x00001fffU 
+                                            [(0x007fffffU 
                                               & ((IData)(1U) 
-                                                 + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))])) 
+                                                 + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))])) 
                             << 8U) | (QData)((IData)(
                                                      vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                      [vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address])))
@@ -1475,42 +1478,42 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
                 : ((2U & (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_funct3))
                     ? ((1U & (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_funct3))
                         ? (((QData)((IData)((((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
-                                               [(0x00001fffU 
+                                               [(0x007fffffU 
                                                  & ((IData)(7U) 
-                                                    + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                    + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                << 0x00000018U) 
                                               | (vlSelfRef.soc_top__DOT__u_ram__DOT__memory
-                                                 [(0x00001fffU 
+                                                 [(0x007fffffU 
                                                    & ((IData)(6U) 
-                                                      + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                      + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                  << 0x00000010U)) 
                                              | ((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
-                                                 [(0x00001fffU 
+                                                 [(0x007fffffU 
                                                    & ((IData)(5U) 
-                                                      + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                      + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                  << 8U) 
                                                 | vlSelfRef.soc_top__DOT__u_ram__DOT__memory
-                                                [(0x00001fffU 
+                                                [(0x007fffffU 
                                                   & ((IData)(4U) 
-                                                     + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))])))) 
+                                                     + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))])))) 
                             << 0x00000020U) | (QData)((IData)(
                                                               (((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                                  [
-                                                                 (0x00001fffU 
+                                                                 (0x007fffffU 
                                                                   & ((IData)(3U) 
-                                                                     + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                                     + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                                  << 0x00000018U) 
                                                                 | (vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                                    [
-                                                                   (0x00001fffU 
+                                                                   (0x007fffffU 
                                                                     & ((IData)(2U) 
-                                                                       + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                                       + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                                    << 0x00000010U)) 
                                                                | ((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                                    [
-                                                                   (0x00001fffU 
+                                                                   (0x007fffffU 
                                                                     & ((IData)(1U) 
-                                                                       + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                                       + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                                    << 8U) 
                                                                   | vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                                   [vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address])))))
@@ -1518,28 +1521,28 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
                                                        (1U 
                                                         & (vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                            [
-                                                           (0x00001fffU 
+                                                           (0x007fffffU 
                                                             & ((IData)(3U) 
-                                                               + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                               + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                            >> 7U)))))) 
                             << 0x00000020U) | (QData)((IData)(
                                                               (((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                                  [
-                                                                 (0x00001fffU 
+                                                                 (0x007fffffU 
                                                                   & ((IData)(3U) 
-                                                                     + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                                     + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                                  << 0x00000018U) 
                                                                 | (vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                                    [
-                                                                   (0x00001fffU 
+                                                                   (0x007fffffU 
                                                                     & ((IData)(2U) 
-                                                                       + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                                       + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                                    << 0x00000010U)) 
                                                                | ((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                                    [
-                                                                   (0x00001fffU 
+                                                                   (0x007fffffU 
                                                                     & ((IData)(1U) 
-                                                                       + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                                       + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                                    << 8U) 
                                                                   | vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                                   [vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address]))))))
@@ -1547,16 +1550,16 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
                         ? (((- (QData)((IData)((1U 
                                                 & (vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                    [
-                                                   (0x00001fffU 
+                                                   (0x007fffffU 
                                                     & ((IData)(1U) 
-                                                       + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                       + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                    >> 7U))))) 
                             << 0x00000010U) | (QData)((IData)(
                                                               ((vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                                 [
-                                                                (0x00001fffU 
+                                                                (0x007fffffU 
                                                                  & ((IData)(1U) 
-                                                                    + (IData)(vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address)))] 
+                                                                    + vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address))] 
                                                                 << 8U) 
                                                                | vlSelfRef.soc_top__DOT__u_ram__DOT__memory
                                                                [vlSelfRef.soc_top__DOT__u_ram__DOT__dmem_address]))))
@@ -1581,6 +1584,7 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
                                               | (IData)(vlSelfRef.soc_top__DOT__u_spi__DOT__cs_n)))));
         }
     }
+    vlSelfRef.dbg_vga_addr = vlSelfRef.soc_top__DOT__dbg_vga_addr;
     vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address 
         = vlSelfRef.soc_top__DOT__u_vga__DOT__cpu_address;
     vlSelfRef.soc_top__DOT__u_core__DOT__u_id_ex__DOT__stall 
@@ -3477,19 +3481,19 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
             ? ((2U & (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_funct3))
                 ? ((1U & (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_funct3))
                     ? 0ULL : (((QData)((IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
-                                               [(0x00003fffU 
+                                               [(0x0000ffffU 
                                                  & ((IData)(3U) 
                                                     + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))])) 
                                << 0x00000018U) | (QData)((IData)(
                                                                  ((vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
                                                                    [
-                                                                   (0x00003fffU 
+                                                                   (0x0000ffffU 
                                                                     & ((IData)(2U) 
                                                                        + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                                                    << 0x00000010U) 
                                                                   | ((vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
                                                                       [
-                                                                      (0x00003fffU 
+                                                                      (0x0000ffffU 
                                                                        & ((IData)(1U) 
                                                                           + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                                                       << 8U) 
@@ -3497,7 +3501,7 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
                                                                      [vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address]))))))
                 : ((1U & (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_funct3))
                     ? (((QData)((IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
-                                        [(0x00003fffU 
+                                        [(0x0000ffffU 
                                           & ((IData)(1U) 
                                              + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))])) 
                         << 8U) | (QData)((IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
@@ -3507,40 +3511,40 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
             : ((2U & (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_funct3))
                 ? ((1U & (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_funct3))
                     ? (((QData)((IData)((((vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
-                                           [(0x00003fffU 
+                                           [(0x0000ffffU 
                                              & ((IData)(7U) 
                                                 + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                            << 0x00000018U) 
                                           | (vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
-                                             [(0x00003fffU 
+                                             [(0x0000ffffU 
                                                & ((IData)(6U) 
                                                   + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                              << 0x00000010U)) 
                                          | ((vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
-                                             [(0x00003fffU 
+                                             [(0x0000ffffU 
                                                & ((IData)(5U) 
                                                   + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                              << 8U) 
                                             | vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
-                                            [(0x00003fffU 
+                                            [(0x0000ffffU 
                                               & ((IData)(4U) 
                                                  + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))])))) 
                         << 0x00000020U) | (QData)((IData)(
                                                           (((vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
                                                              [
-                                                             (0x00003fffU 
+                                                             (0x0000ffffU 
                                                               & ((IData)(3U) 
                                                                  + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                                              << 0x00000018U) 
                                                             | (vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
                                                                [
-                                                               (0x00003fffU 
+                                                               (0x0000ffffU 
                                                                 & ((IData)(2U) 
                                                                    + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                                                << 0x00000010U)) 
                                                            | ((vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
                                                                [
-                                                               (0x00003fffU 
+                                                               (0x0000ffffU 
                                                                 & ((IData)(1U) 
                                                                    + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                                                << 8U) 
@@ -3550,26 +3554,26 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
                                                    (1U 
                                                     & (vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
                                                        [
-                                                       (0x00003fffU 
+                                                       (0x0000ffffU 
                                                         & ((IData)(3U) 
                                                            + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                                        >> 7U)))))) 
                         << 0x00000020U) | (QData)((IData)(
                                                           (((vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
                                                              [
-                                                             (0x00003fffU 
+                                                             (0x0000ffffU 
                                                               & ((IData)(3U) 
                                                                  + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                                              << 0x00000018U) 
                                                             | (vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
                                                                [
-                                                               (0x00003fffU 
+                                                               (0x0000ffffU 
                                                                 & ((IData)(2U) 
                                                                    + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                                                << 0x00000010U)) 
                                                            | ((vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
                                                                [
-                                                               (0x00003fffU 
+                                                               (0x0000ffffU 
                                                                 & ((IData)(1U) 
                                                                    + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                                                << 8U) 
@@ -3578,14 +3582,14 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
                 : ((1U & (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_funct3))
                     ? (((- (QData)((IData)((1U & (vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
                                                   [
-                                                  (0x00003fffU 
+                                                  (0x0000ffffU 
                                                    & ((IData)(1U) 
                                                       + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                                   >> 7U))))) 
                         << 0x00000010U) | (QData)((IData)(
                                                           ((vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__memory
                                                             [
-                                                            (0x00003fffU 
+                                                            (0x0000ffffU 
                                                              & ((IData)(1U) 
                                                                 + (IData)(vlSelfRef.soc_top__DOT__u_vga__DOT__u_ram__DOT__cpu_address)))] 
                                                             << 8U) 
@@ -10929,23 +10933,23 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
                                                                              >> 0x00000010U))
                                                                   : (IData)(vlSelfRef.soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_sra__DOT__s4)))))))))));
     vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_read_data_in = 0ULL;
-    if ((0x0000000000002000ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address)) {
+    if ((0x0000000000800000ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address)) {
         vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_read_data_in 
             = vlSelfRef.soc_top__DOT__u_bus__DOT__ram_read_data;
-    } else if (((0x0000000000002000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-                & (0x0000000000006000ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
+    } else if (((0x0000000001000000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
+                & (0x0000000001100000ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
         vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_read_data_in 
             = vlSelfRef.soc_top__DOT__u_bus__DOT__vga_read_data;
-    } else if (((0x000000000000d000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-                & (0x000000000000d100ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
+    } else if (((0x0000000010000000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
+                & (0x0000000010000100ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
         vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_read_data_in 
             = vlSelfRef.soc_top__DOT__u_bus__DOT__spi_read_data;
-    } else if (((0x000000000000e000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-                & (0x000000000000e010ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
+    } else if (((0x0000000010010000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
+                & (0x0000000010010100ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
         vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_read_data_in 
             = vlSelfRef.soc_top__DOT__u_bus__DOT__clint_read_data;
-    } else if (((0x000000000000f000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
-                & (0x000000000000f100ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
+    } else if (((0x0000000010020000ULL <= vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address) 
+                & (0x0000000010020100ULL > vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_address))) {
         vlSelfRef.soc_top__DOT__u_bus__DOT__dmem_read_data_in 
             = vlSelfRef.soc_top__DOT__u_bus__DOT__io_read_data;
     }

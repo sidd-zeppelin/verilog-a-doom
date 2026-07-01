@@ -1,0 +1,11 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782943042" />
+    <testcase name="test_raw_hazard_ex_forwarding" classname="test_pipeline_hazards" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_pipeline_hazards.py" lineno="36" time="0.003144502639770508" sim_time_ns="310.0" ratio_time="98584.74789597392" />
+    <testcase name="test_raw_hazard_mem_forwarding" classname="test_pipeline_hazards" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_pipeline_hazards.py" lineno="49" time="0.0019304752349853516" sim_time_ns="320.0" ratio_time="165762.29220699024" />
+    <testcase name="test_load_use_stall" classname="test_pipeline_hazards" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_pipeline_hazards.py" lineno="64" time="0.0030107498168945312" sim_time_ns="420.0" ratio_time="139500.133037694" />
+    <testcase name="test_control_hazard_branch_taken" classname="test_pipeline_hazards" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_pipeline_hazards.py" lineno="83" time="0.001829385757446289" sim_time_ns="320.0" ratio_time="174922.10087319172" />
+    <testcase name="test_control_hazard_branch_not_taken" classname="test_pipeline_hazards" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_pipeline_hazards.py" lineno="106" time="0.0018572807312011719" sim_time_ns="320.0" ratio_time="172294.90115532733" />
+    <testcase name="test_control_hazard_jump" classname="test_pipeline_hazards" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_pipeline_hazards.py" lineno="123" time="0.0019829273223876953" sim_time_ns="320.0" ratio_time="161377.57364434292" />
+  </testsuite>
+</testsuites>

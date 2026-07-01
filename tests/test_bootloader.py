@@ -187,7 +187,7 @@ async def test_bootloader(dut):
                 print(f"C{cycle}: FIRST VGA PIXEL DRAWN!")
                 vga_written = True
                 
-            if pixels_drawn > 15000: # About 1 frame (128x128=16384)
+            if pixels_drawn > 60000: # About 1 frame (320x200=64000)
                 print(f"C{cycle}: Rendered a full frame! Breaking early.")
                 break
             
@@ -198,12 +198,12 @@ async def test_bootloader(dut):
     
     # 6. Dump VGA RAM to PPM image!
     with open("frame.ppm", "w") as f:
-        f.write("P3\n128 128\n255\n")
-        for y in range(128):
-            for x in range(128):
-                # VGA RAM is an array of 16384 bytes
-                # Index is {y[6:0], x[6:0]} = (y << 7) | x
-                idx = (y << 7) | x
+        f.write("P3\n320 200\n255\n")
+        for y in range(200):
+            for x in range(320):
+                # VGA RAM is an array of 64000 bytes
+                # Index is y * 320 + x
+                idx = (y * 320) + x
                 val = int(dut.u_vga.u_ram.memory[idx].value)
                 
                 # Format: RRRGGGBB
@@ -220,7 +220,7 @@ async def test_bootloader(dut):
 
     # Assert that the VGA RAM isn't completely empty!
     non_zero = 0
-    for idx in range(16384):
+    for idx in range(64000):
         if int(dut.u_vga.u_ram.memory[idx].value) != 0:
             non_zero += 1
             

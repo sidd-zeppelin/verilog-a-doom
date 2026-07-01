@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782944012" />
+    <testcase name="test_csr_timer_interrupt" classname="test_interrupts" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_interrupts.py" lineno="9" time="0.00973057746887207" sim_time_ns="2000.0" ratio_time="205537.64731825644" />
+  </testsuite>
+</testsuites>

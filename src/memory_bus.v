@@ -10,37 +10,37 @@ module memory_bus (
     input [2:0]  dmem_funct3,
     output reg [63:0] dmem_read_data_in,
     
-    // RAM Interface (0x0000 - 0x1FFF, 8KB)
+    // RAM Interface (0x0000_0000 - 0x00FF_FFFF, 16MB)
     output reg        ram_read_req,
     output reg        ram_write_req,
-    output [12:0]     ram_address,
+    output [23:0]     ram_address,
     output [63:0]     ram_write_data,
     output [2:0]      ram_funct3,
     input  [63:0]     ram_read_data,
     
-    // VGA Interface (0x2000 - 0x5FFF)
+    // VGA Interface (0x0100_0000 - 0x010F_FFFF)
     output reg        vga_read_req,
     output reg        vga_write_req,
-    output [13:0]     vga_address,
+    output [15:0]     vga_address,
     output [63:0]     vga_write_data,
     output [2:0]      vga_funct3,
     input  [63:0]     vga_read_data,
     
-    // SPI Controller Interface (0xD000 - 0xD0FF)
+    // SPI Controller Interface (0x1000_0000 - 0x1000_00FF)
     output reg        spi_read_req,
     output reg        spi_write_req,
     output [3:0]      spi_address,
     output [63:0]     spi_write_data,
     input  [63:0]     spi_read_data,
 
-    // CLINT Interface (0xE000 - 0xE00F)
+    // CLINT Interface (0x1001_0000 - 0x1001_00FF)
     output reg        clint_read_req,
     output reg        clint_write_req,
     output [3:0]      clint_address,
     output [63:0]     clint_write_data,
     input  [63:0]     clint_read_data,
 
-    // IO Interface (0xF000 - 0xF0FF)
+    // IO Interface (0x1002_0000 - 0x1002_00FF)
     output reg        io_read_req,
     output reg        io_write_req,
     output [7:0]      io_address,
@@ -64,11 +64,11 @@ module memory_bus (
     assign clint_write_data = dmem_write_data;
     
     // Address masking (subtracted to get 0-based index)
-    assign ram_address   = dmem_address[12:0]; // 0x0000-0x1FFF is directly the lower 13 bits
-    assign vga_address   = (dmem_address - 64'h2000);
-    assign spi_address   = (dmem_address - 64'hD000);
-    assign clint_address = (dmem_address - 64'hE000);
-    assign io_address    = (dmem_address - 64'hF000);
+    assign ram_address   = dmem_address[23:0];
+    assign vga_address   = (dmem_address - 64'h0100_0000);
+    assign spi_address   = (dmem_address - 64'h1000_0000);
+    assign clint_address = (dmem_address - 64'h1001_0000);
+    assign io_address    = (dmem_address - 64'h1002_0000);
 
     // Address Decoding
     always @(*) begin
@@ -84,27 +84,27 @@ module memory_bus (
         io_write_req  = 1'b0;
         dmem_read_data_in = 64'b0;
 
-        if (dmem_address < 64'h2000) begin
-            // System RAM Access (0x0000 - 0x1FFF)
+        if (dmem_address < 64'h0100_0000) begin
+            // System RAM Access (0x0000_0000 - 0x00FF_FFFF)
             ram_read_req  = dmem_read_req;
             ram_write_req = dmem_write_req;
             dmem_read_data_in = ram_read_data;
-        end else if (dmem_address >= 64'h2000 && dmem_address < 64'h6000) begin
+        end else if (dmem_address >= 64'h0100_0000 && dmem_address < 64'h0110_0000) begin
             // VGA Access
             vga_read_req  = dmem_read_req;
             vga_write_req = dmem_write_req;
             dmem_read_data_in = vga_read_data;
-        end else if (dmem_address >= 64'hD000 && dmem_address < 64'hD100) begin
+        end else if (dmem_address >= 64'h1000_0000 && dmem_address < 64'h1000_0100) begin
             // SPI Access
             spi_read_req  = dmem_read_req;
             spi_write_req = dmem_write_req;
             dmem_read_data_in = spi_read_data;
-        end else if (dmem_address >= 64'hE000 && dmem_address < 64'hE010) begin
+        end else if (dmem_address >= 64'h1001_0000 && dmem_address < 64'h1001_0100) begin
             // CLINT Access
             clint_read_req  = dmem_read_req;
             clint_write_req = dmem_write_req;
             dmem_read_data_in = clint_read_data;
-        end else if (dmem_address >= 64'hF000 && dmem_address < 64'hF100) begin
+        end else if (dmem_address >= 64'h1002_0000 && dmem_address < 64'h1002_0100) begin
             // IO Access
             io_read_req   = dmem_read_req;
             io_write_req  = dmem_write_req;

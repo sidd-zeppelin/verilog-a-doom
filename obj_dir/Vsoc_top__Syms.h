@@ -15,7 +15,7 @@
 
 // INCLUDE MODULE CLASSES
 #include "Vsoc_top___024root.h"
-#include "Vsoc_top_rca_64b.h"
+#include "Vsoc_top_cla_64b.h"
 
 // SYMS CLASS (contains all model state)
 class alignas(VL_CACHE_LINE_BYTES) Vsoc_top__Syms final : public VerilatedSyms {
@@ -27,9 +27,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vsoc_top__Syms final : public VerilatedSyms {
 
     // MODULE INSTANCE STATE
     Vsoc_top___024root             TOP;
-    Vsoc_top_rca_64b               TOP__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__rca_inst;
-    Vsoc_top_rca_64b               TOP__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst;
-    Vsoc_top_rca_64b               TOP__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst;
+    Vsoc_top_cla_64b               TOP__soc_top__DOT__u_core__DOT__u_ex__DOT__u_alu__DOT__u_addsub__DOT__cla_inst;
+    Vsoc_top_cla_64b               TOP__soc_top__DOT__u_core__DOT__u_ex__DOT__u_bta__DOT__adder_inst;
+    Vsoc_top_cla_64b               TOP__soc_top__DOT__u_core__DOT__u_if__DOT__u_pc4__DOT__adder_inst;
 
     // CONSTRUCTORS
     Vsoc_top__Syms(VerilatedContext* contextp, const char* namep, Vsoc_top* modelp);

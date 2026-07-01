@@ -7,7 +7,7 @@ module branch_target_adder (
     wire        cout;
     wire        carry_into_msb;
 
-    rca_64b adder_inst (
+    cla_64b adder_inst (
         .a(pc_current),
         .b(offset),
         .cin(1'b0),

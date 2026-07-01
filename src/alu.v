@@ -28,7 +28,7 @@ module alu (
     wire sub_sel;
     assign sub_sel = (opcode == 4'b1000);
 
-    addsub_rca_64b u_addsub (
+    addsub_cla_64b u_addsub (
         .a(a),
         .b(b),
         .sub(sub_sel),

@@ -29,7 +29,7 @@ VM_CLASSES_FAST += \
   Vtop___024root__0 \
   Vtop___024root__1 \
   Vtop___024root__2 \
-  Vtop_rca_64b__0 \
+  Vtop_cla_64b__0 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
@@ -37,8 +37,8 @@ VM_CLASSES_SLOW += \
   Vtop___024root__Slow \
   Vtop___024root__0__Slow \
   Vtop___024root__1__Slow \
-  Vtop_rca_64b__Slow \
-  Vtop_rca_64b__0__Slow \
+  Vtop_cla_64b__Slow \
+  Vtop_cla_64b__0__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization
 VM_SUPPORT_FAST += \
@@ -46,8 +46,6 @@ VM_SUPPORT_FAST += \
 
 # Generated support classes, non-fast-path, compile with low/medium optimization
 VM_SUPPORT_SLOW += \
-  Vtop__Syms__ctor__0__Slow \
-  Vtop__Syms__dtor__0__Slow \
   Vtop__Syms__Slow \
 
 # Global classes, need linked once per executable, fast-path, compile with highest optimization

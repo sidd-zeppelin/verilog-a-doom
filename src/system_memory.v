@@ -1,4 +1,4 @@
-`define SYS_MEM_SIZE 8192
+`define SYS_MEM_SIZE 16777216
 
 module system_memory (
     input clk,
@@ -9,7 +9,7 @@ module system_memory (
     output [31:0] imem_instruction,
     
     // Port B: Data Access (Synchronous Read/Write)
-    input  [12:0] dmem_address, // 8KB is 13 bits
+    input  [23:0] dmem_address, // 16MB is 24 bits
     input  [63:0] dmem_write_data,
     input         dmem_read_req,
     input         dmem_write_req,
@@ -19,60 +19,18 @@ module system_memory (
 
     reg [7:0] memory [0:`SYS_MEM_SIZE-1];
     
-    // ----------------------------------------------------
-    // Initialization & Auto-Detection
-    // ----------------------------------------------------
-    integer i;
-    integer be_score, le_score;
-    integer scan_idx;
-    reg [31:0] word_be, word_le;
-    reg use_little_endian;
-
-    function is_supported_opcode;
-        input [6:0] opcode;
-        begin
-            case (opcode)
-                7'b0110011, // r-type
-                7'b0010011, // i-type (addi)
-                7'b0000011, // loads
-                7'b0100011, // stores
-                7'b1100011: // branches
-                    is_supported_opcode = 1'b1;
-                default:
-                    is_supported_opcode = 1'b0;
-            endcase
-        end
-    endfunction
-
+    // Auto-load firmware
     initial begin
-        // Read byte-addressed hex from instructions.txt 
         $readmemh("instructions.txt", memory);
-        // Patch any locations readmemh left as 'x' to 0x00
-        for (i = 0; i < `SYS_MEM_SIZE; i = i + 1) begin
-            if (memory[i] === 8'hx)
-                memory[i] = 8'h00;
-        end
-
-        // Auto-detect byte order from the first chunk of non-zero instructions.
-        be_score = 0;
-        le_score = 0;
-        for (scan_idx = 0; scan_idx < 256; scan_idx = scan_idx + 4) begin
-            word_be = {memory[scan_idx], memory[scan_idx + 1], memory[scan_idx + 2], memory[scan_idx + 3]};
-            word_le = {memory[scan_idx + 3], memory[scan_idx + 2], memory[scan_idx + 1], memory[scan_idx]};
-
-            if (word_be != 32'b0 || word_le != 32'b0) begin
-                if (is_supported_opcode(word_be[6:0])) be_score = be_score + 1;
-                if (is_supported_opcode(word_le[6:0])) le_score = le_score + 1;
-            end
-        end
-
-        use_little_endian = (le_score > be_score);
     end
+    
+    // Hardcode little-endian for RISC-V GCC
+    wire use_little_endian = 1'b1;
 
     // ----------------------------------------------------
     // Port A: Instruction Fetch (Combinational)
     // ----------------------------------------------------
-    wire [12:0] pc_idx = imem_address[12:0];
+    wire [23:0] pc_idx = imem_address[23:0];
     assign imem_instruction = use_little_endian ? {
         memory[pc_idx + 3],
         memory[pc_idx + 2],

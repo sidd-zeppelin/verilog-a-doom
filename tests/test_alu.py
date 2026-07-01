@@ -72,6 +72,7 @@ def test_alu():
             os.path.join(src_dir, "spi_controller.v"),
             os.path.join(src_dir, "system_memory.v")
         ],
+        includes=[os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))],
         toplevel="alu",
         module="test_alu"
     )

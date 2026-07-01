@@ -233,20 +233,22 @@ async def test_vga_controller(dut):
     cocotb.start_soon(Clock(dut.clk, 1, units="ns").start())
     
     prog_src = """
-        lui x1, 2          # x1 = 0x2000 (VGA RAM Base)
-        addi x2, x0, 128   # max y
+        lui x1, 0x1000     # x1 = 0x01000000 (VGA RAM Base)
+        addi x2, x0, 200   # max y
         addi x4, x0, 0     # y = 0
     loop_y:
-        addi x3, x0, 128   # max x
+        addi x3, x0, 320   # max x
         addi x5, x0, 0     # x = 0
     loop_x:
         # calculate color: (x ^ y) & 0xFF
         xor x6, x4, x5
         andi x6, x6, 255
         
-        # calculate address: x1 + (y * 128 + x)
-        # y * 128 is y << 7
-        slli x7, x4, 7
+        # calculate address: x1 + (y * 320 + x)
+        # y * 320 is (y << 8) + (y << 6)
+        slli x7, x4, 8
+        slli x8, x4, 6
+        add x7, x7, x8
         add x7, x7, x5
         add x7, x7, x1
         

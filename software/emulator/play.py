@@ -15,9 +15,9 @@ def main():
     print("Starting Pygame Frontend...")
     pygame.init()
     
-    # Setup window (scale 128x128 to 512x512)
-    SCALE = 4
-    WIDTH, HEIGHT = 128, 128
+    # Setup window (scale 320x200 to 640x400)
+    SCALE = 2
+    WIDTH, HEIGHT = 320, 200
     screen = pygame.display.set_mode((WIDTH * SCALE, HEIGHT * SCALE))
     pygame.display.set_caption("Verilog-A-Doom Emulator")
     

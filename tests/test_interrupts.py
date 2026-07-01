@@ -3,6 +3,7 @@ import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, Timer
 from cocotb_test.simulator import run
+# pyrefly: ignore [missing-import]
 from riscv_assembler import RISCVAssembler
 
 @cocotb.test()
@@ -26,7 +27,7 @@ async def test_csr_timer_interrupt(dut):
         "csrrw x0, 0x305, x1", # mtvec = x1
         
         # Setup mtimecmp = 50
-        "lui x2, 14",      # 14 = 0xE. x2 = 0xE000
+        "lui x2, 0x10010", # CLINT base
         "addi x3, x0, 50",
         "sd x3, 0(x2)",    # clint[0] (mtimecmp) = 50
         
@@ -58,7 +59,7 @@ async def test_csr_timer_interrupt(dut):
         
         # Set mtimecmp extremely high so we don't trap again immediately
         "addi x8, x0, -1", # x8 = 0xFFFFFFFF
-        "lui x2, 14",
+        "lui x2, 0x10010",
         "sd x8, 0(x2)",
         
         "mret",            # return to loop
@@ -85,8 +86,8 @@ async def test_csr_timer_interrupt(dut):
         
     # Check RAM
     # RAM is inside dut.u_ram.memory
-    ram_val = int(dut.u_ram.memory[0].value)
-    assert ram_val == 0x42, f"Handler did not run or write failed. RAM[0] = {hex(ram_val)}"
+    ram_val = int(dut.u_ram.memory[4096].value)
+    assert ram_val == 0x42, f"Handler did not run or write failed. RAM[4096] = {hex(ram_val)}"
 
 def test_interrupts():
     src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))

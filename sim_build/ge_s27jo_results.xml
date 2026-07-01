@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782943716" />
+    <testcase name="test_vga_controller" classname="test_vga" file="/home/sidd-zeppelin/Public/study/Projects/verilog-a-doom/tests/test_vga.py" lineno="230" time="65.20774364471436" sim_time_ns="1538564.0" ratio_time="23594.805064608514" />
+  </testsuite>
+</testsuites>
